@@ -117,7 +117,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from employee join user_role on employee.role_id=user_role.role_id";
+					+ " from employee.employee join employee.user_role on employee.role_id = employee.user_role.role_id";
 			Statement stmt = conn.createStatement();
 			
 			ResultSet resultSet = stmt.executeQuery(sql);
