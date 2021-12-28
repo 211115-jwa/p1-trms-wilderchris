@@ -134,8 +134,10 @@ public class EmployeePostgres implements EmployeeDAO {
 				role.setRoleId(resultSet.getInt("role_id"));
 				role.setName(resultSet.getString("role_name"));
 				emp.setRole(role);
-				emp.getSupervisor().setEmpId(resultSet.getInt("supervisor_id"));
-				emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
+				Employee emp2 = new Employee();
+				emp2.setEmpId(resultSet.getInt("supervisor_id"));// some edits to get
+				emp.setSupervisor(emp2);				// down to  the issue of sup/employee
+				//emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
 				
 				emps.add(emp);
 			}
