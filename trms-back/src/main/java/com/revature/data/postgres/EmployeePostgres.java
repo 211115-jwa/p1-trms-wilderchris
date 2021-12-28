@@ -22,7 +22,7 @@ public class EmployeePostgres implements EmployeeDAO {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
 			String[] keys = {"emp_Id"};
-			String sql="insert into employee"
+			String sql="insert into employee.employee"
 					+ " (first_name,"
 					+ " last_name,"
 					+ " username,"
@@ -72,7 +72,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from employee join user_role on employee.role_id=user_role.role_id"
+					+ " from employee.employee join employee.user_role on employee.employee.role_id= employee.user_role.role_id"
 					+ " where emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
@@ -91,8 +91,8 @@ public class EmployeePostgres implements EmployeeDAO {
 				role.setRoleId(resultSet.getInt("role_id"));
 				role.setName(resultSet.getString("role_name"));
 				emp.setRole(role);
-				emp.getSupervisor().setEmpId(resultSet.getInt("supervisor_id"));
-				emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
+			//	emp.getSupervisor().setEmpId(resultSet.getInt("supervisor_id"));
+			//	emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
 			}
 		
 		} catch (SQLException e) {
@@ -112,12 +112,12 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " last_name,"
 					+ " username,"
 					+ " passwd,"
-					+ " employee.role_id,"
-					+ " role_name,"
+					+ " employee.employee.role_id,"
+					+ " employee.user_role.role_name,"
 					+ " funds,"
-					+ " supervisor_id,"
-					+ " dept_id"
-					+ " from employee.employee join employee.user_role on employee.role_id = employee.user_role.role_id";
+					+ " employee.supervisor_id,"
+					+ " employee.dept_id"
+					+ " from (employee.employee join employee.user_role on (employee.role_id = user_role.role_id))";
 			Statement stmt = conn.createStatement();
 			
 			ResultSet resultSet = stmt.executeQuery(sql);
@@ -151,7 +151,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	public void update(Employee dataToUpdate) {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String sql="update employee set "
+			String sql="update employee.employee set "
 					+ " first_name=?,"
 					+ " last_name=?,"
 					+ " username=?,"
@@ -188,7 +188,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	public void delete(Employee dataToDelete) {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String sql="delete from employee"
+			String sql="delete from employee.employee"
 					+ " where emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, dataToDelete.getEmpId());
@@ -220,7 +220,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from employee join user_role on employee.role_id=user_role.role_id"
+					+ " from employee.employee join employee.user_role on employee.employee.role_id= employee.user_role.role_id"
 					+ " where username=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, username);
