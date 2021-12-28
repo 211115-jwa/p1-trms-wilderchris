@@ -15,31 +15,31 @@ import com.revature.data.postgres.EmployeePostgres;
 public class EmployeeDAOTest {
 
 	private static EmployeeDAO empDAO = new EmployeePostgres();
-	private static Employee mockEmp = new Employee();
+	//private static Employee mockEmp = new Employee();
 	//private static com.revature.beans.Role role = new Role(null, null);
-	private static Department dept = new Department();
-	private static Employee sup = mockEmp;
+	//private static Department dept = new Department();
+//	private static Employee sup = mockEmp;
 	
-	@BeforeAll
-	public static void mockEmployeeSetup() {// mock bike
-		mockEmp = new Employee();
-		mockEmp.setFirstName("mock");
-		mockEmp.setLastName("mountain");
-		mockEmp.setUsername("Huffy");
-		mockEmp.setPassword("XXL");
-		com.revature.beans.Role role = null;
-		mockEmp.setRole(role);
-		mockEmp.setFunds(1000);
-		mockEmp.setSupervisor(sup);
-		mockEmp.setDepartment(dept);
-	
-	}	
-	@Test
-	public void createTest() {
-		Employee emp = new Employee();
-		int genId = empDAO.create(emp);
-		assertNotEquals(0,genId);
-	}
+//	@BeforeAll
+//	public static void mockEmployeeSetup() {// mock bike
+//		mockEmp = new Employee();
+//		mockEmp.setFirstName("mock");
+//		mockEmp.setLastName("mountain");
+//		mockEmp.setUsername("Huffy");
+//		mockEmp.setPassword("XXL");
+//		com.revature.beans.Role role = null;
+//		mockEmp.setRole(role);
+//		mockEmp.setFunds(1000);
+//		mockEmp.setSupervisor(sup);
+//		mockEmp.setDepartment(dept);
+//	
+//	}	
+//	@Test
+//	public void createTest() {
+//		Employee emp = new Employee();
+//		int genId = empDAO.create(emp);
+//		assertNotEquals(0,genId);
+//	}
 	@Test
 	public void testGetAll() {
 		Set<Employee> emps = empDAO.getAll();

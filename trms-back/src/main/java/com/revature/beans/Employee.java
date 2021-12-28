@@ -19,10 +19,10 @@ public class Employee {
 		lastName="Last";
 		username="";
 		password="";
-		role = new Role();
+		role = null;
 		funds = 1000.00;
-		supervisor = new Employee();
-		department = new Department();
+		supervisor = null;
+		department = null;
 	}
 
 	public int getEmpId() {
