@@ -2,6 +2,9 @@ package com.revature.controllers;
 
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.beans.Employee;
 import com.revature.data.EmployeeDAO;
 import com.revature.data.postgres.EmployeePostgres;
@@ -13,15 +16,17 @@ public class EmployeesController {
 	private static EmployeeDAO empDAO = new EmployeePostgres();
 	private static Employee emp = new Employee();
 	
-	
+	private static Logger log = LogManager.getLogger(EmployeesController.class);
 	
 	public static void viewAllEmployees(Context ctx) {
+		log.info("getting all of the employees");
 		Set<Employee> emps = empDAO.getAll();
 		//System.out.println(emps);
 		ctx.json(emps);
 	}
 	public static void viewEmployeeById(Context ctx) {
-		String idString = ctx.pathParam("empId");
+		log.info("getting employee by id");
+		String idString = ctx.pathParam("id");
 		try {
 			
 		emp = empDAO.getById(Integer.valueOf(idString));

@@ -29,6 +29,7 @@ public class RequestsController {
 	 */
 	public static void submitReimbursementRequest(Context ctx) {
 		Reimbursement request = ctx.bodyAsClass(Reimbursement.class);
+		ctx.result(" nothing set up to view");
 		int reqId = empServ.submitReimbursementRequest(request);
 		if (reqId != 0) {
 			ctx.status(HttpCode.CREATED);
@@ -38,6 +39,7 @@ public class RequestsController {
 			ctx.status(400);
 			ctx.result("Something went wrong with your submission. Please try again.");
 		}
+		
 	}
 	
 	/**
@@ -60,7 +62,7 @@ public class RequestsController {
 	 */
 	public static void getRequestsByRequestor(Context ctx) {
 		String requestorIdStr = ctx.pathParam("id");
-		
+		ctx.result(" nothing set up to view");
 		try {
 			int requestorId = Integer.valueOf(requestorIdStr);
 			Employee requestor = empServ.getEmployeeById(requestorId);
@@ -75,5 +77,6 @@ public class RequestsController {
 			ctx.status(400);
 			ctx.result("Requestor ID must be an integer. Please try again.");
 		}
+		
 	}
 }
