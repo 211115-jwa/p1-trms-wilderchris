@@ -30,10 +30,10 @@ public class TRMSApp {
 				});
 				
 				// localhost:8080/pets/8
-				path("/{id}", () -> {
+			//	path("/{id}", () -> {
 					//get(PetsController::getPetById);
 				//	put(PetsController::updatePet);
-				});
+				//});
 			});
 			
 			path("/employees", () -> {
@@ -42,7 +42,7 @@ public class TRMSApp {
 //				path("/auth", () -> {
 //					post(UsersController::logIn); // login
 				});
-				path("/{id}", () -> {// emp get by id
+				path("/employees/{id}", () -> {// emp get by id
 					get(EmployeesController::viewEmployeeById);
 					//get(UsersController::getUserById); // get user by id
 					//put(UsersController::updateUser); // update user
