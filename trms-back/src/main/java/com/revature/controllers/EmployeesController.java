@@ -19,18 +19,20 @@ public class EmployeesController {
 	private static Logger log = LogManager.getLogger(EmployeesController.class);
 	
 	public static void viewAllEmployees(Context ctx) {
-		log.info("getting all of the employees");
+		
 		Set<Employee> emps = empDAO.getAll();
+		log.info("getting all of the employees");
 		//System.out.println(emps);
 		ctx.json(emps);
 	}
 	public static void viewEmployeeById(Context ctx) {
-		log.info("getting employee by id");
-		String idString = ctx.pathParam("id");
+		
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		log.info("getting employee by id: "+id);
 		try {
 			
-		emp = empDAO.getById(Integer.valueOf(idString));
-		if (idString != null) {
+		emp = empDAO.getById(id);
+		if (id != 0) {
 			ctx.json(emp);
 		} else {
 			ctx.status(404);

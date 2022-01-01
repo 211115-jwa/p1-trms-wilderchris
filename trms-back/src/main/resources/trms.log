@@ -1,0 +1,12 @@
+2021-12-30 14:07:36 INFO  EmployeesController:22 - getting all of the employees
+2021-12-30 14:08:19 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:09:59 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:10:03 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:10:22 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:10:56 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:13:14 INFO  EmployeesController:28 - getting employee by id
+2021-12-30 14:19:21 INFO  EmployeesController:31 - getting employee by id: 2
+2021-12-30 14:19:32 INFO  EmployeesController:24 - getting all of the employees
+2021-12-30 14:20:00 INFO  RequestsController:70 - getting all of the requestor requests: 5
+2021-12-30 16:20:03 INFO  EmployeesController:24 - getting all of the employees
+2021-12-30 16:20:04 INFO  EmployeesController:24 - getting all of the employees
