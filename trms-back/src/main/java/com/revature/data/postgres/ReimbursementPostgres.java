@@ -11,24 +11,31 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.beans.Employee;
 import com.revature.beans.EventType;
 import com.revature.beans.GradingFormat;
 import com.revature.beans.Reimbursement;
 import com.revature.beans.Status;
+import com.revature.controllers.EmployeesController;
 import com.revature.data.ReimbursementDAO;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbursementPostgres implements ReimbursementDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
 
+	private static Logger log = LogManager.getLogger(EmployeesController.class);
+	
+	
 	@Override
 	public int create(Reimbursement dataToAdd) {
 		int generatedId=0;
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
 			String[] keys = {"req_Id"};
-			String sql="insert into reimbursement"
+			String sql="insert into trms.reimbursement"
 					+ " (emp_id,"
 					+ " event_date,"
 					+ " event_time,"
@@ -89,10 +96,10 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id"
+					" from trms.reimbursement r" + 
+					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join trms.event_type et on r.event_type_id=et.type_id" + 
+					" join trms.status s on r.status_id=s.status_id"
 					+ " where req_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
@@ -197,7 +204,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 	public void update(Reimbursement dataToUpdate) {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String sql="update reimbursement set"
+			String sql="update trms.reimbursement set"
 					+ " emp_id=?,"
 					+ " event_date=?,"
 					+ " event_time=?,"
@@ -238,7 +245,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 	public void delete(Reimbursement dataToDelete) {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String sql="delete from reimbursement"
+			String sql="delete from trms.reimbursement"
 					+ " where req_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, dataToDelete.getReqId());
@@ -286,6 +293,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 			pStmt.setInt(1, requestor.getEmpId());
 			
 			ResultSet resultSet = pStmt.executeQuery();
+			
+			//log.info("resultSet:  "+resultSet.getInt("emp_id"));
+			
 			while (resultSet.next()) {
 				Reimbursement request = new Reimbursement();
 				request.setReqId(resultSet.getInt("req_id"));
@@ -342,11 +352,11 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id"
-					+ " where status_id=?";
+					" from trms.reimbursement r" + 
+					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join trms.event_type et on r.event_type_id=et.type_id" + 
+					" join trms.status s on r.status_id=s.status_id"
+					+ " where status.status_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, status.getStatusId());
 			

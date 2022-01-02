@@ -1,10 +1,8 @@
 package com.revature.app;
 
 import io.javalin.Javalin;
-
 import static io.javalin.apibuilder.ApiBuilder.*;
 
-import com.revature.controllers.EmployeesController;
 import com.revature.controllers.RequestsController;
 
 public class TRMSApp {
@@ -15,14 +13,13 @@ public class TRMSApp {
 	public static void main(String[] args) {
 		Javalin app = Javalin.create().start();
 
-		
-		
-		app.routes(() -> {
+		 
+		 app.routes(() -> {
 													// localhost:8080/pets
 			path("/requests", () -> {
 				//get(PetsController::getPets);
 				post(RequestsController::submitReimbursementRequest);
-				
+			});
 				// localhost:8080/pets/adopt/8
 				path("/requestor/{id}", () -> {
 					get(RequestsController::getRequestsByRequestor);
@@ -34,22 +31,22 @@ public class TRMSApp {
 					//get(PetsController::getPetById);
 				//	put(PetsController::updatePet);
 				//});
-			});
 			
-			path("/employees", () -> {
-				get(EmployeesController::viewAllEmployees);
-				//post(UsersController::register); // register
-//				path("/auth", () -> {
-//					post(UsersController::logIn); // login
-				});
-				path("/employees/{id}", () -> {// emp get by id
-					get(EmployeesController::viewEmployeeById);
-					//get(UsersController::getUserById); // get user by id
-					//put(UsersController::updateUser); // update user
-				//	path("/auth", () -> {
-						//get(UsersController::checkLogin); // check login
-					//});
-				});
+			
+//			path("/employees", () -> {
+//				get(EmployeesController::viewAllEmployees);
+//				//post(UsersController::register); // register
+////				path("/auth", () -> {
+////					post(UsersController::logIn); // login
+//				});
+//				path("/employees/{id}", () -> {// emp get by id
+//					get(EmployeesController::viewEmployeeById);
+//					//get(UsersController::getUserById); // get user by id
+//					//put(UsersController::updateUser); // update user
+//				//	path("/auth", () -> {
+//						//get(UsersController::checkLogin); // check login
+//					//});
+//				});
 			//});
 		});
 		

@@ -21,7 +21,7 @@ public class Employee {
 		password="";
 		role = null;
 		funds = 1000.00;
-		supervisor = null;
+		supervisor =null;
 		department = null;
 	}
 

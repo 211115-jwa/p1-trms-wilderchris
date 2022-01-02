@@ -3,6 +3,9 @@ package com.revature.controllers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
 import com.revature.services.EmployeeService;
@@ -12,8 +15,13 @@ import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 public class RequestsController {
+	ObjectMapper objectMapper = 
+		    new ObjectMapper().registerModule(new JavaTimeModule())
+		            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+	
 	private static EmployeeService empServ = new EmployeeServiceImpl();
 	private static Logger log = LogManager.getLogger(RequestsController.class);
+	
 	/**
 	 * Retrieves the submitted reimbursement request from the
 	 * HTTP request body and sends it to be inserted in the database.
@@ -69,11 +77,11 @@ public class RequestsController {
 		String requestorIdStr = ctx.pathParam("id");
 		log.info("getting all of the requestor requests: " + requestorIdStr);
 		
-		ctx.result(" nothing set up to view");
+		
 		try {
 			int requestorId = Integer.valueOf(requestorIdStr);
 			Employee requestor = empServ.getEmployeeById(requestorId);
-			
+			log.info("employee: " + requestor);
 			if (requestor != null) {
 				ctx.json(empServ.getReimbursementRequests(requestor));
 			} else {

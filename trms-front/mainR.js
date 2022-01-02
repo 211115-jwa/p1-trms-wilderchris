@@ -5,7 +5,7 @@ getRequests();
 
 async function getRequests() {
     let response = await fetch(reqAppUrl + 'requestor/1');
-    // let response = await fetch('http://localhost:8080/pets/8',{method:'PUT', body:JSON.stringify(petObj)});
+    // let response = await fetch(reqAppUrl + 'requestor/1',{method:'PUT', body:JSON.stringify(reqObj)});
     
     if (response.status === 200) {
         let requests = await response.json();
@@ -45,7 +45,7 @@ function showRequests(requests) {
                 // pet[field] gets the value of the field
                 column.innerText = pet[field];
             } else {
-                column.innerHTML=`<button id="adopt${req.reqId}">Adopt</button>`;
+                column.innerHTML=`<button id="adopt${req.reqId}">Test</button>`;
             }
             rowForPet.appendChild(column);
         }
