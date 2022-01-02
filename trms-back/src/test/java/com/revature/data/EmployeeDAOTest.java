@@ -4,11 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Set;
 
-import javax.management.relation.Role;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import com.revature.beans.Department;
 import com.revature.beans.Employee;
 import com.revature.data.postgres.EmployeePostgres;
 

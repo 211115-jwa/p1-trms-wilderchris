@@ -20,7 +20,7 @@ public class Reimbursement {
 	
 	public Reimbursement() {
 		reqId=0;
-		requestor=null;
+		requestor= new Employee();
 		eventDate=null;
 		eventTime=null;
 		location="";
