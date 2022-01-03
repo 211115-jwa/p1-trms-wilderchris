@@ -14,24 +14,17 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.beans.Employee;
 import com.revature.beans.EventType;
 import com.revature.beans.GradingFormat;
 import com.revature.beans.Reimbursement;
 import com.revature.beans.Status;
-import com.revature.controllers.EmployeesController;
 import com.revature.data.ReimbursementDAO;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbursementPostgres implements ReimbursementDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
-	ObjectMapper objectMapper = 
-		    new ObjectMapper().registerModule(new JavaTimeModule())
-		            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-	private static Logger log = LogManager.getLogger(EmployeesController.class);
+	private static Logger log = LogManager.getLogger(ReimbursementPostgres.class);
 	
 	
 	@Override
@@ -361,7 +354,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
 					" join trms.event_type et on r.event_type_id=et.type_id" + 
 					" join trms.status s on r.status_id=s.status_id"
-					+ " where status.status_id=?";
+					+ " where s.status_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, status.getStatusId());
 			

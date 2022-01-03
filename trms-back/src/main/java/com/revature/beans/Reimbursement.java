@@ -21,8 +21,8 @@ public class Reimbursement {
 	public Reimbursement() {
 		reqId=0;
 		requestor= new Employee();
-		eventDate=null;
-		eventTime=null;
+		eventDate=LocalDate.of(2000,01,01);
+		eventTime=LocalTime.of(00,01,00);
 		location="";
 		description="";
 		cost=0.0;

@@ -21,7 +21,7 @@ public class EmployeePostgres implements EmployeeDAO {
 		int generatedId=0;
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String[] keys = {"emp_Id"};
+			String[] keys = {"emp_id"};
 			String sql="insert into employee.employee"
 					+ " (first_name,"
 					+ " last_name,"
@@ -91,8 +91,8 @@ public class EmployeePostgres implements EmployeeDAO {
 				role.setRoleId(resultSet.getInt("role_id"));
 				role.setName(resultSet.getString("role_name"));
 				emp.setRole(role);
-			//	emp.getSupervisor().setEmpId(resultSet.getInt("supervisor_id"));
-			//	emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
+				emp.getSupervisor().setEmpId(resultSet.getInt("supervisor_id"));
+				emp.getDepartment().setDeptId(resultSet.getInt("dept_id"));
 			}
 		
 		} catch (SQLException e) {
