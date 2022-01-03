@@ -67,3 +67,5 @@
 2022-01-01 20:33:41 INFO  RequestsController:84 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=null, department=null]
 2022-01-01 20:44:33 INFO  RequestsController:78 - getting all of the requestor requests: 1
 2022-01-01 20:44:35 INFO  RequestsController:84 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=null, department=null]
+2022-01-02 10:25:52 INFO  RequestsController:79 - getting all of the requestor requests: 1
+2022-01-02 10:25:54 INFO  RequestsController:85 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=null, department=null]
