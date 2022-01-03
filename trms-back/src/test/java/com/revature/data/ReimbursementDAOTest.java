@@ -30,12 +30,38 @@ public class ReimbursementDAOTest {
 	static Status st;
 	
 	@BeforeAll
+	public static void mockEventTypeSetup() {
+		et = new EventType();
+		et.setEventId(1);
+		et.setName("Other");
+		et.setPercentCovered(30.0);
+	}
+	
+	@BeforeAll
+	public static void mockGradingFormatSetup() {
+		gf = new GradingFormat();
+		gf.setFormatId(1);
+		gf.setName("Awarded");
+		gf.setExample("A");
+	}
+	
+	@BeforeAll
+	public static void mockStatusSetup() {
+		st = new Status();
+		st.setStatusId(2);
+		st.setName("Pending Approval");
+		st.setApprover("Direct Supervisor");
+	}
+	
+	
+	
+	@BeforeAll
 	public static void mockReimbursementSetup() {// mock bike
 		rem = new Reimbursement();
 		
 		rem.setRequestor(emp);
-		rem.setEventDate(ld);
-		rem.setEventTime(lt);
+		rem.setEventDate(LocalDate.of(2000,01,01));
+		rem.setEventTime(LocalTime.of(00,01,00));
 		rem.setLocation("location string");
 		rem.setDescription("test description for mock");
 		rem.setCost(100);
@@ -44,6 +70,9 @@ public class ReimbursementDAOTest {
 		rem.setStatus(st);
 		rem.setSubmittedAt(LocalDateTime.now());
 	}
+	
+	
+	
 	
 	@Test
 	public void testGetByRequestor() {
@@ -58,6 +87,8 @@ public class ReimbursementDAOTest {
 	}
 	@Test
 	public void testCreateReimbursement() {
+	System.out.println(st+ "  " +gf+ "  "+ et);
+		
 		int test = remDAO.create(rem);
 		System.out.println(test + "   " + rem);
 		assertNotEquals(0,test);

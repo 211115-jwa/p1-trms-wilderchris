@@ -14,25 +14,10 @@ async function getRequests() {
     }
 }
 
-// function getPetsAjax() {
-//     let xhr = new XMLHttpRequest();
-//     xhr.onreadystatechange = getData;
-//     xhr.open('GET', petAppUrl + 'pets');
-//     xhr.send();
-// 
-    // function getData() {
-    //     if (xhr.readyState === 4) {
-    //         if (xhr.status === 200) {
-    //             let response = xhr.responseText;
-    //             let pets = JSON.parse(response);
-    //             showPets(pets);
-    //         }
-    //     }
-    // }
-// }
+
 
 function showRequests(requests) {
-    let requestsTable = document.getElementById('allRequests');//availablePets
+    let requestsTable = document.getElementById('allRequests');//all
 
     // for each pet in the array of pets that we got from the back end
     for (let req of requests) {
@@ -41,16 +26,16 @@ function showRequests(requests) {
         // for each field in the pet (yes, we can iterate through fields)
         for (let field in req) {
             let column = document.createElement('td');
-            if (field!=='status') {
-                // pet[field] gets the value of the field
-                column.innerText = pet[field];
-            } else {
-                column.innerHTML=`<button id="adopt${req.reqId}">Test</button>`;
-            }
-            rowForPet.appendChild(column);
+            // if (field!=='status') {
+            //     // pet[field] gets the value of the field
+            //     column.innerText = pet[field];
+            // } else {
+            //     column.innerHTML=`<button id="adopt${req.reqId}">Test</button>`;
+            // }
+            rowForRequests.appendChild(column);
         }
         requestsTable.appendChild(rowForRequests);
-        document.getElementById(`adopt${pet.petId}`).onclick = adoptPet;
+       // document.getElementById(`adopt${pet.petId}`).onclick = adoptPet;
     }
 }
 

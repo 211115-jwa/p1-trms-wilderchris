@@ -69,3 +69,11 @@
 2022-01-01 20:44:35 INFO  RequestsController:84 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=null, department=null]
 2022-01-02 10:25:52 INFO  RequestsController:79 - getting all of the requestor requests: 1
 2022-01-02 10:25:54 INFO  RequestsController:85 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=null, department=null]
+2022-01-03 14:15:33 INFO  RequestsController:84 - getting all of the requestor requests: 1
+2022-01-03 14:15:34 INFO  RequestsController:90 - employee: Employee [empId=1, firstName=Michelle, lastName=Chadney, username=mchadney0, password=V5UOvZt, role=Role [roleId=5, name=CTO], funds=156.0, supervisor=Employee [empId=0, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=null]
+2022-01-03 14:17:11 INFO  RequestsController:84 - getting all of the requestor requests: 4
+2022-01-03 14:17:11 INFO  RequestsController:90 - employee: Employee [empId=4, firstName=Rycca, lastName=McOwen, username=rmcowen3, password=7QS2TdnsB7E, role=Role [roleId=1, name=CEO], funds=523.0, supervisor=Employee [empId=0, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=null]
+2022-01-03 14:59:37 INFO  EmployeesController:24 - getting all of the employees
+2022-01-03 15:00:28 INFO  EmployeesController:24 - getting all of the employees
+2022-01-03 15:04:49 INFO  EmployeesController:24 - getting all of the employees
+2022-01-03 15:07:49 INFO  EmployeesController:24 - getting all of the employees
