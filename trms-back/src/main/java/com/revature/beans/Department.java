@@ -12,6 +12,8 @@ public class Department {
 		name = "";
 		deptHeadId = 0;
 	}
+	
+	
 
 	public int getDeptId() {
 		return deptId;

@@ -39,7 +39,7 @@ public class EmployeeDAOTest {
 	@Test
 	public void testGetAll() {
 		Set<Employee> emps = empDAO.getAll();
-//		System.out.println(emps);
+		System.out.println(emps);
 		assertNotEquals(null, emps);
 	}
 	

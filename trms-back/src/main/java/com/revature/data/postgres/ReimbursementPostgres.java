@@ -14,6 +14,9 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.beans.Employee;
 import com.revature.beans.EventType;
 import com.revature.beans.GradingFormat;
@@ -25,7 +28,9 @@ import com.revature.utils.ConnectionUtil;
 
 public class ReimbursementPostgres implements ReimbursementDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
-
+	ObjectMapper objectMapper = 
+		    new ObjectMapper().registerModule(new JavaTimeModule())
+		            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 	private static Logger log = LogManager.getLogger(EmployeesController.class);
 	
 	

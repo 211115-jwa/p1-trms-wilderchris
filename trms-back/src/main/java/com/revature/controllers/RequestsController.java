@@ -13,12 +13,18 @@ import com.revature.services.EmployeeServiceImpl;
 
 import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
+import java.time.LocalDateTime;
 
 public class RequestsController {
 	ObjectMapper objectMapper = 
 		    new ObjectMapper().registerModule(new JavaTimeModule())
 		            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 	
+//	ObjectMapper jackson = new ObjectMapper();
+//	jackson.registerModule(new JavaTimeModule());
+//	jackson.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//	JavalinJackson.configure(jackson);
+
 	private static EmployeeService empServ = new EmployeeServiceImpl();
 	private static Logger log = LogManager.getLogger(RequestsController.class);
 	

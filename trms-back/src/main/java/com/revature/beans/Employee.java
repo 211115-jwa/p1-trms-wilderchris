@@ -21,9 +21,16 @@ public class Employee {
 		password="";
 		role = null;
 		funds = 1000.00;
-		supervisor =null;
+		supervisor =new Employee(empId);
 		department = null;
+		
 	}
+	
+	public Employee(int empId) {////added for fix stackoverflow
+		super();
+		this.empId = empId;
+	}
+
 
 	public int getEmpId() {
 		return empId;

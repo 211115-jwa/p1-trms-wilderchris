@@ -27,8 +27,7 @@ public class ReimbursementDAOTest {
 	static GradingFormat gf;
 	static LocalTime lt;
 	static EventType et;
-	static Status st = new Status();
-	
+	static Status st;
 	
 	@BeforeAll
 	public static void mockReimbursementSetup() {// mock bike
