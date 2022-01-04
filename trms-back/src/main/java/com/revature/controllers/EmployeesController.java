@@ -27,7 +27,7 @@ public class EmployeesController {
 	}
 	public static void viewEmployeeById(Context ctx) {
 		
-		int id = Integer.parseInt(ctx.pathParam("id"));
+		int id = Integer.parseInt(ctx.pathParam("empId"));
 		log.info("getting employee by id: "+id);
 		try {
 			
