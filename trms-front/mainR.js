@@ -4,7 +4,7 @@ getRequests();
 //getPetsAjax();
 
 async function getRequests() {
-    let response = await fetch(reqAppUrl + 'requestor/1');
+    let response = await fetch(reqAppUrl + 'requests/requestor/10');
     // let response = await fetch(reqAppUrl + 'requestor/1',{method:'PUT', body:JSON.stringify(reqObj)});
     
     if (response.status === 200) {
