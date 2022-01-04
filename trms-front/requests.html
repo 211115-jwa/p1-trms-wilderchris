@@ -9,13 +9,15 @@
         <main>
             <h3>TRMS</h3>
             review the open requests<br><br>
-            
-            <table id="allRequests">
+            <input id="dataInput" placeholder=" Enter Employee Id: "></input>
+            <button id="reqbutton">Search</button>
+            <table id="allRequests" class="collapse">
                 <tr>
-                    <th>ID</th>
+                    <th>REQ ID</th>
                     <th>Emp id </th>
-                    <th>event date </th>
-                    <th>event_time </th>
+                    <th class="collapse">Requestor</th>
+                    <th>event Date </th>
+                    <th>event Time </th>
                     <th>location </th>
                     <th>description</th>
                     <th>cost</th>
@@ -27,6 +29,10 @@
             </table>
             <!-- <script src="setup.js"></script> -->
             <script src="mainR.js"></script>
+            <!-- <script src="cdn.rawgit.com/caldwell/renderjson/master/renderjson.js"></script> -->
+            <section id="info">
+
+            </section>
         </main>
         <footer id="footer">
            trms
