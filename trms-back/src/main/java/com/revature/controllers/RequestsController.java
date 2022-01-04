@@ -87,8 +87,9 @@ public class RequestsController {
 		try {
 			int requestorId = Integer.valueOf(requestorIdStr);
 			Employee requestor = empServ.getEmployeeById(requestorId);
-			log.info("employee: " + requestor);
+			//log.info("employee: " + requestor);
 			if (requestor != null) {
+				//log.info(empServ.getReimbursementRequests(requestor));
 				ctx.json(empServ.getReimbursementRequests(requestor));
 			} else {
 				ctx.status(404);
