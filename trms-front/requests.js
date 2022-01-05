@@ -1,6 +1,5 @@
 
 document.getElementById(`reqbutton`).onclick = getRequests;
-console.log(loggedInPerson);
 
 async function getRequests() {
     let userInput = document.getElementById('dataInput').value; 
