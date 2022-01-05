@@ -1,6 +1,7 @@
 package com.revature.app;
 
 import io.javalin.Javalin;
+import io.javalin.http.HttpCode;
 import io.javalin.plugin.json.JsonMapper;
 
 import static io.javalin.apibuilder.ApiBuilder.*;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.controllers.EmployeesController;
 import com.revature.controllers.RequestsController;
+import com.revature.controllers.UsersController;
 
 public class TRMSApp {
 
@@ -29,8 +31,17 @@ with Selenium using your Cucumber feature files.
 			config.enableCorsForAllOrigins();
 		}).start();
 
+		app.before("/employees/*", ctx -> {
+			if (!ctx.method().equals("OPTIONS")) {
+				ctx.header("Access-Control-Allow-Headers", "Token");
+			    ctx.header("Access-Control-Expose-Headers", "Token");
+				
+				String token = ctx.header("Token");
+				if (token==null) ctx.status(HttpCode.UNAUTHORIZED);
+			}
+		});
 		
-	app.routes(() -> {
+		app.routes(() -> {
 			path("/employees", () -> {
 				get(EmployeesController::viewAllEmployees);
 
@@ -47,13 +58,24 @@ with Selenium using your Cucumber feature files.
 
 				});
 			});
+		
+			path("/users", () -> {
+				post(UsersController::register); // register
+				path("/auth", () -> {
+					post(UsersController::logIn); // login
+				});
+				path("/{id}", () -> {
+					get(UsersController::getUserById); // get user by id
+					put(UsersController::updateUser); // update user
+					path("/auth", () -> {
+						get(UsersController::checkLogin); // check login
+					});
+				});
+			});
 		});
 	}
 	
 }
-
-
-
 
 class JacksonMapper implements JsonMapper {
 	ObjectMapper om = new ObjectMapper();
