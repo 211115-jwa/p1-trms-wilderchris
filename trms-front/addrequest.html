@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title> TRMS </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="nav">
+    </nav>
+
+    <header>
+        <h1><span>Tuition Reimbursement</span></h1>
+    </header>
+
+    <h2> Request Form</h2>
+
+    <p></p>
+    <form name="submitRequest">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname">
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname">
+        <br>
+        <br>
+        <label for="edate">Event Date:</label>
+        <input type="datetime-local" id="event-date" name="edate"
+               value="2022-01-01T00:00"
+               min="datetime-local" max="2023-12-31T00:00">
+        <label for="location">Event Location:</label>
+        <input type="text" name="location">
+        <br>
+        <br>
+        <label for="cost">Cost:</label>
+        <input type="number" name="location" placeholder="$">
+        <label for="gformat">Grading format:</label>
+        <select id="gformat" name="tuser">
+            <option value="75"></option>
+            <option value="pass">Pass/Fail</option>
+            <option value="presented">Presentation</option>//
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <br>
+        <label for="rwork">Type of Event:</label>
+        <select id="eventtype" name="rwork">
+            <option value="80">University Course</option>
+            <option value="60">Seminar</option>
+            <option value="75">Certification Preparation Class</option>
+            <option value="100">Certification</option>
+            <option value="90">Technical Training</option>
+            <option value="30">Other</option>
+        </select>
+       
+        <br>
+        <br>
+        <textarea name="descBox" rows="10" cols="50" placeholder="Description"></textarea>
+        <br>
+        <br>
+        <button type="button" name="submitbutton" >Submit</button>
+    </form>
+    <script src="setup.js"></script>
+    <script src="addrequest.js"></script>
+
+
+</body>
+</html>

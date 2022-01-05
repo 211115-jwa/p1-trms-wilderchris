@@ -1,16 +1,16 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #eeb866;
+    background-color: #b67616;
 }
 
 nav a {
-    color:#0e5526;
+    color:#438559;
 }
 
 nav {
     display:flex;
     justify-content: space-around;
-    font-size:24pt;
+    font-size:20pt;
 }
 
 #navLeft {
@@ -28,7 +28,7 @@ nav {
 nav, main {
     margin:.5em;
     padding: 1em;
-    background-color:#fcd218;
+    background-color:#b6ad86;
 }
 
 main {
@@ -36,8 +36,9 @@ main {
 }
 
 table,th,td {
-    font-size:16pt;
-    border:1px solid #9f3ea8;
+    font-size:14pt;
+    color:white;
+    border:1px solid #344349;
     border-collapse: collapse;
 }
 
@@ -50,19 +51,19 @@ th {
 }
 
 tr:nth-child(1) {
-    background-color: #503181;
+    background-color: #2e5829;
 }
 
 tr:nth-child(even) {
-    background-color: #a381b1;
+    background-color: #eb9564;
 }
 
 button {
     padding:.5em;
-    background-color: #89a08b;
+    background-color: #9e6422;
     color:white;
     border-style: none;
-    border-radius: .75em;
+    border-radius: .60em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16pt;
 }

@@ -1,13 +1,13 @@
-let reqAppUrl ='http://localhost:8080/';
+
 document.getElementById(`reqbutton`).onclick = getRequests;
-//let dataSection = document.getElementById('info');
+console.log(loggedInPerson);
 
 async function getRequests() {
     let userInput = document.getElementById('dataInput').value; 
 
     let response = await fetch(reqAppUrl + 'requests/requestor/' + userInput);
     
-    //document.getElementsByTagName('td').innerText = ' ';
+    
 
     if (response.status === 200 || response == '') {
         let requests = await response.json();
@@ -19,7 +19,7 @@ async function getRequests() {
     }
 }
 function showRequests(requests) {
-    //location.reload();
+   
 
     let requestsTable = document.getElementById('allRequests');//all
        
