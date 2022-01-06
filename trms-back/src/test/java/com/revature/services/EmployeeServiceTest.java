@@ -121,12 +121,12 @@ public class EmployeeServiceTest {
 
 	
 	
-	@Test
-	public void testSubmitRemimbursementRequest() {//
-		List<Reimbursement> rem = new ArrayList<>(mockRequests);
-		when(reqDAO.create(rem.get(1))).thenReturn(1);
-		int result = empServ.submitReimbursementRequest(rem.get(1));
-		assertNotEquals(0, result);
-		
-	}
+//	@Test
+//	public void testSubmitRemimbursementRequest() {//
+//		List<Reimbursement> rem = new ArrayList<>(mockRequests);
+//		when(reqDAO.create(rem.get(1))).thenReturn(1);
+//		int result = empServ.submitReimbursementRequest(rem.get(1));
+//		assertNotEquals(0, result);
+//		
+//	}
 }
