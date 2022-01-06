@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.controllers.EmployeesController;
 import com.revature.controllers.RequestsController;
 import com.revature.controllers.UsersController;
@@ -24,10 +25,12 @@ then implement each feature using Agile methodology. Test each feature that you'
 with Selenium using your Cucumber feature files.
 	
 	*/
+	//ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules();
 	
+	//objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
 	public static void main(String[] args) {
 		Javalin app = Javalin.create(config -> {
-			config.jsonMapper(new JacksonMapper());
+			//config.jsonMapper(new JacksonMapper());
 			config.enableCorsForAllOrigins();
 		}).start();
 
@@ -77,24 +80,25 @@ with Selenium using your Cucumber feature files.
 	
 }
 
-class JacksonMapper implements JsonMapper {
-	ObjectMapper om = new ObjectMapper();
-	@Override
-    public String toJsonString(Object obj) {
-        try {
-			return om.writeValueAsString(obj);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
-        return null;
-    }
-    @Override
-    public <T> T fromJsonString(String json, Class<T> targetClass) {
-        try {
-			return om.readValue(json, targetClass);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        return null;
-    }
-}
+//class JacksonMapper implements JsonMapper {
+//	ObjectMapper om = new ObjectMapper();
+//	
+//	@Override
+//    public String toJsonString(Object obj) {
+//        try {
+//			return om.writeValueAsString(obj);
+//		} catch (JsonProcessingException e) {
+//			e.printStackTrace();
+//		}
+//        return null;
+//    }
+//    @Override
+//    public <T> T fromJsonString(String json, Class<T> targetClass) {
+//        try {
+//			return om.readValue(json, targetClass);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//        return null;
+//    }
+//}

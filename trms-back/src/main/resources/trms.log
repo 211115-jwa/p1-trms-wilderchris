@@ -435,3 +435,108 @@
 2022-01-05 12:45:23 INFO  RequestsController:84 - getting all of the requestor requests: 10
 2022-01-05 12:48:18 INFO  RequestsController:84 - getting all of the requestor requests: 10
 2022-01-05 12:49:39 INFO  RequestsController:84 - getting all of the requestor requests: 10
+2022-01-05 19:23:29 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 19:53:48 INFO  RequestsController:80 - getting all of the requestor requests: 2
+2022-01-05 19:53:54 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 19:55:07 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 19:55:58 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 19:57:46 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 19:59:46 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 20:00:41 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:11:04 INFO  RequestsController:80 - getting all of the requestor requests: 10
+2022-01-05 20:11:28 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:16:03 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:19:14 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:20:08 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:20:09 INFO  RequestsController:45 - intialStatus var value:  Status [statusId=1, name=Approved, approver=BenCo]
+2022-01-05 20:26:50 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:26:52 INFO  RequestsController:50 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 20:34:19 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 20:34:20 INFO  RequestsController:50 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 21:01:15 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:01:16 INFO  RequestsController:50 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 21:01:19 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:01:20 INFO  RequestsController:50 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 21:23:18 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:23:19 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 21:26:37 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:29:56 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:41:55 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:52:14 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:52:18 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 21:56:57 INFO  RequestsController:46 - submitting request object: null
+2022-01-05 21:56:58 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:18:40 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:19:15 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:21:44 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:21:44 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:23:19 INFO  RequestsController:86 - getting all of the requestor requests: 10
+2022-01-05 22:27:24 INFO  RequestsController:86 - getting all of the requestor requests: 10
+2022-01-05 22:28:51 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:28:51 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:29:04 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:29:05 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:34:03 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:34:05 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:49:39 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:49:40 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 22:55:00 INFO  RequestsController:52 - submitting request object: null,   :
+2022-01-05 22:55:02 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 23:09:13 INFO  RequestsController:86 - getting all of the requestor requests: 10
+2022-01-05 23:24:37 INFO  RequestsController:59 - submitting request object: HttpInputOverHTTP@53746e4a[c=0,q=0,[0]=null,s=STREAM],   :
+2022-01-05 23:25:29 INFO  RequestsController:59 - submitting request object: HttpInputOverHTTP@6c60ce98[c=0,q=0,[0]=null,s=STREAM],   :
+2022-01-05 23:26:17 INFO  RequestsController:59 - submitting request object: HttpInputOverHTTP@44f2a218[c=0,q=0,[0]=null,s=STREAM],   :
+2022-01-05 23:39:53 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-05 23:39:56 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 23:50:31 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-05 23:50:33 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-05 23:58:39 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-05 23:58:41 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 00:01:45 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-06 00:01:47 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 00:07:12 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-06 00:07:13 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 00:50:13 INFO  RequestsController:67 - submitting request object: null,   :
+2022-01-06 00:50:17 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:12:10 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=4, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:12:19 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:14:11 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=4, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:14:13 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:15:58 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:15:59 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:18:39 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:18:41 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:19:38 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:19:40 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:20:54 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:20:55 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:26:34 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:26:36 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:29:01 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:29:03 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:30:19 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 01:30:21 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
+2022-01-06 01:36:40 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:46:19 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:48:30 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:50:02 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:54:16 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:58:00 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 01:58:11 INFO  RequestsController:101 - getting all of the requestor requests: 6
+2022-01-06 01:59:34 INFO  RequestsController:101 - getting all of the requestor requests: 6
+2022-01-06 01:59:43 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:03:04 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:04:26 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:06:03 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:11:22 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:11:55 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:13:16 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:13:30 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:18:17 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:18:27 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:21:32 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:22:40 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:23:51 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:34:54 INFO  RequestsController:101 - getting all of the requestor requests: 10
+2022-01-06 02:35:41 INFO  RequestsController:67 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Ruthi, lastName=Munro, username=rmunro9, password=h1RP10fCdG, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2111.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-06 02:35:41 INFO  EmployeeServiceImpl:49 - intialStatus var value:  Status [statusId=4, name=Pending, approver=Supervisor]
