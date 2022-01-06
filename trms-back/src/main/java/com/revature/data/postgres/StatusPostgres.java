@@ -19,7 +19,7 @@ public class StatusPostgres implements StatusDAO {
 	public Status getById(int id) {
 		Status status = new Status();
 		try (Connection conn = connUtil.getConnection()) {
-			String sql = "select * from status where status_id=?";
+			String sql = "select * from trms.status where status_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
 			
@@ -42,7 +42,7 @@ public class StatusPostgres implements StatusDAO {
 	public Set<Status> getAll() {
 		Set<Status> statuses = new HashSet<>();
 		try (Connection conn = connUtil.getConnection()) {
-			String sql = "select * from status";
+			String sql = "select * from trms.status";
 			Statement stmt = conn.createStatement();
 			
 			ResultSet resultSet = stmt.executeQuery(sql);
@@ -65,7 +65,7 @@ public class StatusPostgres implements StatusDAO {
 	public Set<Status> getByName(String name) {
 		Set<Status> statuses = new HashSet<>();
 		try (Connection conn = connUtil.getConnection()) {
-			String sql = "select * from status where status_name=?";
+			String sql = "select * from trms.status where status_name=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
 			

@@ -27,9 +27,12 @@ function showRequests(requests) {
     for (let req of requests) 
     {
         let submitted = requests[i].submittedAt;
-        
-        sub = (submitted.monthValue + '/' + submitted.dayOfMonth + '/' + submitted.year);
-        console.log(sub);
+        for(let i = 0;i<6;i++){
+                if(submitted[i] < 10){
+                    submitted[i] = ('0' + submitted[i]);
+                }
+        }
+        sub = (submitted[0] + '/' + submitted[1] + '/' + submitted[2] + ' ' + submitted[3] + ':' + submitted[4] + ':' + submitted[5] );
         let status = (requests[i].status);
         stat = (status.statusId + ': ' + status.name);
         let eventType = (requests[i].eventType);
@@ -37,11 +40,10 @@ function showRequests(requests) {
         let gradingFormat = (requests[i].gradingFormat);
         gFormat = (gradingFormat.formatId + ': ' + gradingFormat.name);
         let eventTime = (requests[i].eventTime);
-        eTime = (eventTime.hour + ':' + eventTime.minute + ':' + eventTime.second);
+        eTime = (eventTime[0] + ':' + eventTime[1]);
         let eventDate = (requests[i].eventDate);
-        eDate = (eventDate.monthValue + '/' + eventDate.dayOfMonth + '/' + eventDate.year);
+        eDate = (eventDate[1] + '/' + eventDate[2] + '/' + eventDate[0]);
         let employees = (requests[i].requestor);
-        //console.log(eDate);
         console.log(employees);
         let rowForRequests = document.createElement('tr');
         
