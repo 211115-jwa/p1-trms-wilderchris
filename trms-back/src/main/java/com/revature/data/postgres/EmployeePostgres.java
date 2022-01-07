@@ -17,7 +17,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
 
 	@Override
-	public int create(Employee dataToAdd) {
+	public int create(Employee dataToAdd) {//1
 		int generatedId=0;
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
@@ -58,7 +58,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee getById(int id) {
+	public Employee getById(int id) {//2
 		Employee emp = null;
 		
 		try (Connection conn = connUtil.getConnection()) {
@@ -103,7 +103,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	}
 
 	@Override
-	public Set<Employee> getAll() {
+	public Set<Employee> getAll() {//3
 		Set<Employee> emps = new HashSet<>();
 		
 		try (Connection conn = connUtil.getConnection()) {
@@ -150,7 +150,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	}
 
 	@Override
-	public void update(Employee dataToUpdate) {
+	public void update(Employee dataToUpdate) {//4
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
 			String sql="update employee.employee set "
@@ -187,7 +187,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	}
 
 	@Override
-	public void delete(Employee dataToDelete) {
+	public void delete(Employee dataToDelete) {//5
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
 			String sql="delete from employee.employee"
@@ -208,7 +208,7 @@ public class EmployeePostgres implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee getByUsername(String username) {
+	public Employee getByUsername(String username) {//6
 		Employee emp = null;
 		
 		try (Connection conn = connUtil.getConnection()) {

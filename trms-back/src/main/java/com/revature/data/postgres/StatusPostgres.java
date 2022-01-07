@@ -16,7 +16,7 @@ public class StatusPostgres implements StatusDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
 
 	@Override
-	public Status getById(int id) {
+	public Status getById(int id) {//1
 		Status status = new Status();
 		try (Connection conn = connUtil.getConnection()) {
 			String sql = "select * from trms.status where status_id=?";
@@ -39,7 +39,7 @@ public class StatusPostgres implements StatusDAO {
 	}
 
 	@Override
-	public Set<Status> getAll() {
+	public Set<Status> getAll() {//2
 		Set<Status> statuses = new HashSet<>();
 		try (Connection conn = connUtil.getConnection()) {
 			String sql = "select * from trms.status";
@@ -62,7 +62,7 @@ public class StatusPostgres implements StatusDAO {
 	}
 
 	@Override
-	public Set<Status> getByName(String name) {
+	public Set<Status> getByName(String name) {//3
 		Set<Status> statuses = new HashSet<>();
 		try (Connection conn = connUtil.getConnection()) {
 			String sql = "select * from trms.status where status_name=?";

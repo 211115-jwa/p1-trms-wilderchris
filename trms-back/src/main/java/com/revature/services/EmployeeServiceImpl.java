@@ -46,9 +46,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public int submitReimbursementRequest(Reimbursement request) {
 		Status initialStatus = statusDao.getById(4);
-		log.info("intialStatus var value:  " + initialStatus);//but it isnt empty
-		request.setStatus(initialStatus);//[qtp1637290981-13] WARN io.javalin.Javalin
-		// - Uncaught exception  java.lang.NullPointerException
+		log.info("intialStatus var value:  " + initialStatus);
+		request.setStatus(initialStatus);
 		request.setSubmittedAt(LocalDateTime.now());
 		return reqDao.create(request);
 	}

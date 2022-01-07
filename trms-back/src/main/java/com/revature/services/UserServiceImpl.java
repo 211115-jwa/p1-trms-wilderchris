@@ -6,7 +6,7 @@ import com.revature.utils.DAOFactory;
 
 public class UserServiceImpl implements UserService {
 	private EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
-	
+	//private static Logger log = LogManager.getLogger(UserServiceImpl.class);
 	
 	@Override
 	public Employee register(Employee newEmp) {
@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 			newEmp.setEmpId(newId);
 			return newEmp;
 		} else if (newId == -1) {
-			//throw new UsernameAlreadyExistsException();
+			
 		}
 		return null;
 
@@ -27,11 +27,10 @@ public class UserServiceImpl implements UserService {
 		if (emp != null && emp.getPassword().equals(password)) {
 			return emp;
 		} else {
-			//throw new IncorrectCredentialsException();
+			
 		}
 		return null;
 	}
-
 
 	@Override
 	public Employee getUserById(int id) {

@@ -54,7 +54,6 @@ public class Reimbursement {
 	public LocalDate getEventDate() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate ld = LocalDate.parse(eventDate,formatter);
-		//LocalDate ed = String.eventDate;
 		return ld;
 	}
 

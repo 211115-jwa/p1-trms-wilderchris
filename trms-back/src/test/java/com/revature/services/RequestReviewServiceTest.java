@@ -1,5 +1,12 @@
 package com.revature.services;
 
-public class RequestReviewServiceTest {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import com.revature.controllers.RequestsController;
+
+public class RequestReviewServiceTest {
+	
+	private static Logger log = LogManager.getLogger(RequestReviewServiceTest.class);
+	
 }
