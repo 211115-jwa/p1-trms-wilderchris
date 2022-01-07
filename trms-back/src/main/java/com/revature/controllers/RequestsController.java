@@ -1,9 +1,5 @@
 package com.revature.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,14 +12,7 @@ import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 public class RequestsController {
-//	ObjectMapper objectMapper = 
-//		    new ObjectMapper().registerModule(new JavaTimeModule())
-//		            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-//	
-//	ObjectMapper jackson = new ObjectMapper();
-//	jackson.registerModule(new JavaTimeModule());
-//	jackson.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-//	JavalinJackson.configure(jackson);
+
 
 	private static EmployeeService empServ = new EmployeeServiceImpl();
 	private static Logger log = LogManager.getLogger(RequestsController.class);
@@ -42,21 +31,7 @@ public class RequestsController {
 	 * <p>
 	 * This method should be handling a POST request.
 	 * 
-//	   InputStream is = ctx.bodyAsInputStream();
-//		ObjectInputStream ois = null;
-//		log.info("submitting request object: " + is + ",   :");
-//		Reimbursement request = (Reimbursement) ois.readObject();
-//		log.info("submitting request object: " + request + ",   :");
-//		ois.close();
-//		is.close();
-//		
-//		try {
-//			ois = new ObjectInputStream(is);
-//		} catch (NullPointerException | IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
- * 
+	  * 
 	 * @param ctx Javalin's Context object representing the HTTP request and response
 	 */
 	public static void submitReimbursementRequest(Context ctx) {

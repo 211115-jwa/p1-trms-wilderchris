@@ -1,0 +1,55 @@
+--create schema employee;
+
+--select * from employee.department
+--select * from employee.employee;
+--select * from employee.user_role
+
+--delete from employee.employee where emp_id=23;
+
+
+--ALTER TABLE employee.employee
+--   ADD CONSTRAINT fk_role_id FOREIGN KEY (role_id)
+--      REFERENCES employee.user_role (role_id)
+
+
+--select emp_id, first_name,  last_name, username, passwd,
+--    employee.employee.role_id, employee.user_role.role_name, funds, employee.supervisor_id, employee.dept_id from
+--     (employee.employee join employee.user_role on (employee.role_id = user_role.role_id));
+
+
+
+--insert into employee.user_role (role_id, role_name) values(19, 'fired');
+
+--update employee.employee set first_name= 'Marcos',
+ last_name= 'Bossmang',
+  username= 'presOne69',
+   passwd= 'sdfg5fregt',
+    role_id=1, funds=1000,
+     supervisor_id=1,
+      dept_id=1 where emp_id=1;
+
+
+____TABLES______
+
+--drop table employee.employee;
+create table employee.employee (
+	emp_id serial primary key not null,
+	first_name varchar(80) not null,
+	last_name varchar(80) not null,
+	username varchar(80) not null,
+	passwd varchar(80) not null,
+	role_id integer not null, --foreign key references employee.user_role(role_id),
+	funds integer not null,
+	supervisor_id integer not null, -- foreign key references employee.employee(emp_id),
+	dept_id integer not null -- foreign key references employee.department(dept_id)
+ 
+);
+create table employee.user_role (
+	role_id serial primary key,
+	role_name varchar(100) not null
+);
+create table employee.department (
+	dept_id serial primary key,
+	dept_name varchar(100) not null,
+	dept_head_id integer not null --foreign key references employee.employee(emp_id)
+);

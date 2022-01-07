@@ -1,0 +1,75 @@
+--create database trms;
+--create schema trms;
+
+
+select * from trms.comment
+--select * from trms.reimbursement
+--select * from trms.grading_format
+--select * from trms.status 
+
+--ALTER TABLE trms.trms.reimbursement 
+--   ADD CONSTRAINT fk_status_id FOREIGN KEY (status_id)
+--      REFERENCES trms.status (status_id)
+
+
+
+---TABLE SETUP-------
+
+--drop table trms.reimbursement;
+
+--create table trms.reimbursement (
+--req_id serial primary key not null,
+--	emp_id integer not null,
+--	event_date date not null,
+--	event_time time not null,
+--	location varchar(80) not null,
+--	description varchar(200) not null,
+--	cost integer not null, 
+--	grading_format_id integer not null,
+--	event_type_id integer not null, 
+--	status_id integer not null, 
+-- submitted_at timestamp not null
+--);
+
+--drop table trms.status cascade;
+
+--create table trms.status (
+--	status_id serial primary key,
+--	status_name varchar(100) not null,
+--	approver varchar(80) not null
+--);
+
+--create table trms.comment (
+--	comment_id serial primary key,
+--	req_id integer not null,
+--	approver_id integer not null,
+--	comment_text varchar(400),
+--	sent_at timestamp
+--);
+
+--create table trms.event_type (
+--	type_id serial primary key,
+--	type_name varchar(80) not null,
+--	percent_coverage integer not null
+--);
+
+
+--create table trms.grading_format (
+--	format_id serial primary key,
+--	format_name varchar(80) not null,
+--	example varchar(200) not null
+--);
+
+
+--insert into trms.status (status_name, approver) values('Pending', 'Supervisor');
+
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (9, '1/11/2022', '4:11 AM', '8854 Arkansas Trail', 'Ureterostomy closure', 814, 2, 2, 3, '10/5/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (10, '1/11/2022', '12:34 PM', '158 Northview Place', 'Lap remove rem ova/tube', 322, 1, 1, 4, '11/7/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (10, '12/31/2021', '10:51 PM', '6 Pepper Wood Lane', 'Bowel diagnost proc NEC', 580, 3, 1, 3, '10/17/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (1, '1/10/2022', '2:58 PM', '36974 Cascade Parkway', 'Pyelotomy', 472, 3, 2, 4, '11/27/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (5, '1/29/2022', '7:39 PM', '96 Melvin Avenue', 'Endomet synechiae divis', 961, 3, 6, 4, '10/6/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (7, '1/21/2022', '5:35 PM', '789 Wayridge Street', 'Salpingotomy', 778, 2, 5, 5, '10/31/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (3, '1/29/2022', '10:20 AM', '2863 Onsgard Court', 'Hand plastic op NEC', 95, 1, 1, 3, '11/17/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (15, '1/7/2022', '11:00 PM', '0 Doe Crossing Park', 'Other gu system exams', 955, 2, 1, 5, '11/28/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (14, '1/22/2022', '4:07 AM', '733 Pleasure Road', 'Arth/pros rem wo re-shld', 599, 2, 6, 4, '11/30/2021');
+--insert into trms.reimbursement (emp_id, event_date, event_time, location, description, cost, grading_format_id, event_type_id, status_id, submitted_at) values (5, '1/28/2022', '6:26 PM', '1435 Cordelia Avenue', 'Closed mitral valvotomy', 481, 1, 4, 4, '11/17/2021');

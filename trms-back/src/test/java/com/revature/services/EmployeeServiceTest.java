@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +20,7 @@ import com.revature.beans.Comment;
 import com.revature.beans.Department;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
+import com.revature.controllers.RequestsController;
 import com.revature.data.CommentDAO;
 import com.revature.data.DepartmentDAO;
 import com.revature.data.EmployeeDAO;
@@ -30,6 +33,9 @@ import com.revature.utils.DAOFactory;
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 
+	private static Logger log = LogManager.getLogger(EmployeeServiceTest.class);
+	
+	
 	@Mock
 	private CommentDAO comDAO = DAOFactory.getCommentDAO();
 
