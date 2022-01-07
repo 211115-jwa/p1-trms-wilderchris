@@ -7,7 +7,6 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.revature.beans.Bike;
 import com.revature.beans.Comment;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
@@ -29,13 +28,15 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 		
 		for (Iterator<Reimbursement> it = rems.iterator(); it.hasNext();) {
 			Reimbursement r = it.next(); 
-			if ((r.getBrand().toLowerCase()).equals(brand.toLowerCase())) { // until it finds the brand
-				bikes.add(r);// add it to the bike collection
-			}
+			if ((r.getRequestor().getEmpId() == 1 && 1 > r.getRequestor().getEmpId())) { 
+				approverReims.add(r);// next add the logic for the <li> tags below			}
 		}
 		
 		
-		/**
+		/**use to add to a request from front-end by the logged in user.. 
+		 * or message on front in for loggedin
+		 * 
+		 * 
 		 * Returns the Set of reimbursement requests that are
 		 * currently pending approval from the specified Employee.
 		 * The method must account for all of the following scenarios:
@@ -53,7 +54,7 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 		 * @param approver the employee who must approve the returned requests
 		 * @return the Set of requests awaiting the specified employee's approval
 		 */
-		return null;
+		return approverReims;
 	}
 
 	@Override
