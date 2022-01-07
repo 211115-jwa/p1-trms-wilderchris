@@ -33,27 +33,27 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 		}
 		
 		
-		/**use to add to a request from front-end by the logged in user.. 
-		 * or message on front in for loggedin
-		 * 
-		 * 
-		 * Returns the Set of reimbursement requests that are
-		 * currently pending approval from the specified Employee.
-		 * The method must account for all of the following scenarios:
-		 * <ul>
-		 * 	<li>Requests that are at the "direct supervisor" approval
-		 * status and the specified employee is the requestor's direct
-		 * supervisor</li>
-		 * 	<li>Requests that are at the "department head" approval
-		 * status and the specified employee is the head of that department</li>
-		 * 	<li>Requests that are at the "benefits coordinator" approval
-		 * status and the specified employee is in the human resources
-		 * department</li>
-		 * </ul>
-		 * 
-		 * @param approver the employee who must approve the returned requests
-		 * @return the Set of requests awaiting the specified employee's approval
-		 */
+		// /**use to add to a request from front-end by the logged in user.. 
+		//  * or message on front in for loggedin
+		//  * 
+		//  * 
+		//  * Returns the Set of reimbursement requests that are
+		//  * currently pending approval from the specified Employee.
+		//  * The method must account for all of the following scenarios:
+		//  * <ul>
+		//  * 	<li>Requests that are at the "direct supervisor" approval
+		//  * status and the specified employee is the requestor's direct
+		//  * supervisor</li>
+		//  * 	<li>Requests that are at the "department head" approval
+		//  * status and the specified employee is the head of that department</li>
+		//  * 	<li>Requests that are at the "benefits coordinator" approval
+		//  * status and the specified employee is in the human resources
+		//  * department</li>
+		//  * </ul>
+		//  * 
+		//  * @param approver the employee who must approve the returned requests
+		//  * @return the Set of requests awaiting the specified employee's approval
+		//  */
 		return approverReims;
 	}
 
