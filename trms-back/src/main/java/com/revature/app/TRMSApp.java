@@ -48,7 +48,7 @@ with Selenium using your Cucumber feature files.
 		
 		app.routes(() -> {
 			path("/pending/{id}", () -> {
-				get(ReviewsController::getByApprover);
+				get(RequestsController::getByApprover);
 
 				path("/id/{empId}", () -> {//?
 					get(EmployeesController::viewEmployeeById);
