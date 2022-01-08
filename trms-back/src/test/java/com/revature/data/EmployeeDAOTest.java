@@ -25,7 +25,7 @@ public class EmployeeDAOTest {
 	
 	//private static Logger log = LogManager.getLogger(EmployeeDAOTest.class);
 	//private static int next = 30;
-	private static String username = "rmunro9";
+	private static String username = "bart";
 	private static int genId;
 	private static String unUpdate = "Username Updated";
 	private static EmployeeDAO empDAO = new EmployeePostgres();
