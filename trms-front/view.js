@@ -1,10 +1,13 @@
 
-document.getElementById(`reqbutton`).onclick = getRequests;
 
+setTimeout(getRequests,5000);
 async function getRequests() {
-    let userInput = document.getElementById('dataInput').value; 
+    checkLogin().then(setupNav);
 
-    let response = await fetch(reqAppUrl + 'requests/requestor/' + userInput);
+   let eid = loggedInPerson.empId;
+   console.log(loggedInPerson);
+    
+    let response = await fetch(reqAppUrl + 'requests/requestor/' + eid);// fix logic
     
 
     if (response.status === 200){// || response == '') {
@@ -25,19 +28,17 @@ async function getRequests() {
 
 
 function showRequests(requests) {
-    // let table = document.getElementById("req_row");
-    // for (let i in table.rows) {
-    //    let row = table[i]
-    // document.getElementById('req_row').deleteRow(x);
-    // }
+    let tdElements = document.getElementsByTagName('td');
+    for(let td of tdElements){
+        td.innerText = ' ';
+    }
 
     let requestsTable = document.getElementById('allRequests');//all
        
-      let i = 0;
+       let i = 0;
    //for each request
     for (let req of requests) 
     {
-        
         let submitted = requests[i].submittedAt;
         for(let i = 0;i<6;i++){
                 if(submitted[i] < 10){
@@ -56,9 +57,9 @@ function showRequests(requests) {
         let eventDate = (requests[i].eventDate);
         eDate = (eventDate[1] + '/' + eventDate[2] + '/' + eventDate[0]);
         let employees = (requests[i].requestor);
-        console.log(employees);
+       // console.log(employees);
         let rowForRequests = document.createElement('tr');
-        rowForRequests.setAttribute("id","req_row")
+        
         // for each field in the request (yes, we can iterate through fields)
         for (let field in req) {
            

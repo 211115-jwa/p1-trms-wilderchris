@@ -10,7 +10,7 @@ nav a {
 nav {
     display:flex;
     justify-content: space-around;
-    font-size:20pt;
+    font-size:16pt;
 }
 
 #navLeft {
@@ -21,7 +21,7 @@ nav {
 
 #navRight {
     display: flex;
-    justify-content: right;
+    justify-content: space-around;
     width:33%;
 }
 
@@ -92,7 +92,7 @@ button:hover {
     text-decoration: none;
   }
   
-  .dropdown {
+  /* .dropdown {
     float: left;
     overflow: hidden;
   }
@@ -136,4 +136,4 @@ button:hover {
   
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */

@@ -1,9 +1,12 @@
 
 
-//document.getElementById(`reqbutton`).onclick = getRequests;
+document.getElementById(`submitbutton`).onclick = sendRequests;
 
 
-async function getRequests() {
+async function sendRequests() {
+
+
+    
     let userInput = document.getElementById('dataInput').value; 
 
     let response = await fetch(reqAppUrl + 'requests/' + getRequest);

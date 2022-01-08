@@ -33,11 +33,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private CommentDAO commentDao = DAOFactory.getCommentDAO();
 	private EmployeeDAO empDao = DAOFactory.getEmployeeDAO();
 	private static Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
-	
 
 	@Override
 	public Map<String, Set<Object>> getRequestOptions() {
-		Map<String,Set<Object>> requestOptions = new HashMap<>();
+		Map<String, Set<Object>> requestOptions = new HashMap<>();
 		requestOptions.put("eventTypes", eventTypeDao.getAll());
 		requestOptions.put("gradingFormats", gradFormatDao.getAll());
 		return requestOptions;
@@ -45,7 +44,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public int submitReimbursementRequest(Reimbursement request) {
-		Status initialStatus = statusDao.getById(4);
+		int x = 0;
+		// logic to check for roles and set proper initial status
+			if (request.getRequestor().getRole().getName().contains("Manager")
+				|| request.getRequestor().getRole().getName().contains("BenCo")) {
+				x = 3;
+			} else
+				x = 4;
+
+		Status initialStatus = statusDao.getById(x);
+
 		log.info("intialStatus var value:  " + initialStatus);
 		request.setStatus(initialStatus);
 		request.setSubmittedAt(LocalDateTime.now());
@@ -81,25 +89,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Employee getEmployeeById(int empId) {
 		return empDao.getById(empId);
 	}
-	class JacksonMapper implements JsonMapper {
-		ObjectMapper om = new ObjectMapper();
-		@Override
-	    public String toJsonString(Object obj) {
-	        try {
-				return om.writeValueAsString(obj);
-			} catch (JsonProcessingException e) {
-				e.printStackTrace();
-			}
-	        return null;
-	    }
-	    @Override
-	    public <T> T fromJsonString(String json, Class<T> targetClass) {
-	        try {
-				return om.readValue(json, targetClass);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	        return null;
-	    }
-	}
+
+	
+	
+	
+	//	class JacksonMapper implements JsonMapper {
+//		ObjectMapper om = new ObjectMapper();
+//		@Override
+//	    public String toJsonString(Object obj) {
+//	        try {
+//				return om.writeValueAsString(obj);
+//			} catch (JsonProcessingException e) {
+//				e.printStackTrace();
+//			}
+//	        return null;
+//	    }
+//	    @Override
+//	    public <T> T fromJsonString(String json, Class<T> targetClass) {
+//	        try {
+//				return om.readValue(json, targetClass);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//	        return null;
+//	    }
+//	}
 }
