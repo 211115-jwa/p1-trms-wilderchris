@@ -1,6 +1,6 @@
 
 
-setTimeout(getRequests,5000);
+setTimeout(getRequests,3000);
 
 async function getRequests() {
     

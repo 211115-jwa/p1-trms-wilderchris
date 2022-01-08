@@ -12,44 +12,39 @@ import com.revature.beans.Comment;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
 import com.revature.data.CommentDAO;
-import com.revature.data.EmployeeDAO;
 import com.revature.data.ReimbursementDAO;
-import com.revature.data.StatusDAO;
 import com.revature.utils.DAOFactory;
 
 public class RequestReviewServiceImpl implements RequestReviewService {
 
 	private static ReimbursementDAO remDAO = DAOFactory.getReimbursementDAO();
-	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
-	private static StatusDAO statDAO = DAOFactory.getStatusDAO();
+	//private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
+	//private static StatusDAO statDAO = DAOFactory.getStatusDAO();
 	private static CommentDAO comDAO = DAOFactory.getCommentDAO();
 	static Logger log = LogManager.getLogger(RequestReviewServiceImpl.class);
 
 	@Override
 	public Set<Reimbursement> getPendingReimbursements(Employee approver) {// test more// should be good
-
 		Set<Reimbursement> approverReims = new HashSet<>();
-
 		Set<Reimbursement> rems = remDAO.getAll();
 
 		for (Iterator<Reimbursement> it = rems.iterator(); it.hasNext();) {
 			Reimbursement r = it.next();
 			log.info(r);
-			if (r.getStatus().getName() == "Pending Sup"
+			if (r.getStatus().getName().contains("Sup")
 					&& approver.getEmpId() == r.getRequestor().getSupervisor().getEmpId()) {
+				log.info(" the r:"+ r);
+				log.info(r.getRequestor().getSupervisor().getEmpId());
 				approverReims.add(r);
-
-			} else if (r.getStatus().getName() == "Pending DH"
+			} else if (r.getStatus().getName().contains("Dh")
 					&& approver.getEmpId() == r.getRequestor().getSupervisor().getSupervisor().getEmpId()) {// need DH
-				// this should pull the sups sup which I set to only be DH
 				approverReims.add(r);
-			} else if (r.getStatus().getName() == "Pending BC" && approver.getEmpId() == 6) {// 6 is benCo
-
+			} else if (r.getStatus().getName().contains("BC") && approver.getEmpId() == 6) {// 6 is benCo
 				approverReims.add(r);
 			}
 		}
-
-		return approverReims;
+		log.info(approverReims);
+	return approverReims;
 	}
 
 	@Override
@@ -61,7 +56,7 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 
 		String approver = getApproverString(request);
 
-		/// checking for logic// trest comeback
+		/// checking for logic// test comeback
 //		if( approver == "Supervisor") 
 //			com.setApprover(request.getRequestor().getSupervisor());
 //		else if( approver == "Dept. Head")

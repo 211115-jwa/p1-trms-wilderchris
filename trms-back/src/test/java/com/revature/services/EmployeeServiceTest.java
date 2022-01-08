@@ -8,19 +8,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import com.revature.beans.Comment;
 import com.revature.beans.Department;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
-import com.revature.controllers.RequestsController;
 import com.revature.data.CommentDAO;
 import com.revature.data.DepartmentDAO;
 import com.revature.data.EmployeeDAO;
@@ -33,14 +31,14 @@ import com.revature.utils.DAOFactory;
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 
-	private static Logger log = LogManager.getLogger(EmployeeServiceTest.class);
+	//private static Logger log = LogManager.getLogger(EmployeeServiceTest.class);
 	
 	
 	@Mock
 	private CommentDAO comDAO = DAOFactory.getCommentDAO();
 
 	@Mock
-	private DepartmentDAO dd = DAOFactory.getDepartmentDAO();
+	private DepartmentDAO depttDAO = DAOFactory.getDepartmentDAO();
 
 	@Mock
 	private EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
@@ -60,29 +58,17 @@ public class EmployeeServiceTest {
 	@InjectMocks
 	private EmployeeService empServ = new EmployeeServiceImpl();
 
-	private static Set<Employee> mockEmployees;
-	private static Set<Reimbursement> mockRequests;
-	private static Set<Comment> mockComments;
+	
+	private static Set<Employee> mockEmps;
+	private static Set<Reimbursement> mockReqs;
+	private static Set<Comment> mockComs;
 	//private static Set<Department> mockDepartments;
-
 	Department mockDept = new Department(1, "Test Department", 24);
 
-	@BeforeAll
-	public static void mockRequestsSetup() {
-		mockRequests = new HashSet<>();
-
-		for (int i = 1; i <= 8; i++) {
-			Reimbursement req = new Reimbursement();
-			req.setReqId(i);
-			req.getRequestor().setEmpId(i);
-			req.getStatus().setStatusId(i);
-			mockRequests.add(req);
-		}
-	}
-
+	
 	@BeforeAll
 	public static void mockCommentsSetup() {
-		mockComments = new HashSet<>();
+		mockComs = new HashSet<>();
 
 		for (int i = 1; i <= 24; i++) {
 			Comment com = new Comment();
@@ -98,13 +84,27 @@ public class EmployeeServiceTest {
 				else
 					com.getApprover().setEmpId(24);
 			}
-			mockComments.add(com);
+			mockComs.add(com);
 		}
 	}
 
 	@BeforeAll
+	public static void mockRequestsSetup() {
+		mockReqs = new HashSet<>();
+
+		for (int i = 1; i <= 8; i++) {
+			Reimbursement req = new Reimbursement();
+			req.setReqId(i);
+			req.getRequestor().setEmpId(i);
+			req.getStatus().setStatusId(i);
+			mockReqs.add(req);
+		}
+	}
+
+	
+	@BeforeAll
 	public static void mockEmployeesSetup() {
-		mockEmployees = new HashSet<>();
+		mockEmps = new HashSet<>();
 
 		for (int i = 1; i <= 24; i++) {
 			Employee emp = new Employee();
@@ -121,18 +121,36 @@ public class EmployeeServiceTest {
 				emp.getRole().setRoleId(2);
 			else
 				emp.getRole().setRoleId(1);
-			mockEmployees.add(emp);
+			mockEmps.add(emp);
 		}
 	}
 
 	
 	
-//	@Test
-//	public void testSubmitRemimbursementRequest() {//
-//		List<Reimbursement> rem = new ArrayList<>(mockRequests);
-//		when(reqDAO.create(rem.get(1))).thenReturn(1);
-//		int result = empServ.submitReimbursementRequest(rem.get(1));
-//		assertNotEquals(0, result);
-//		
-//	}
+	@Test
+	public void testSubmitRemimbursementRequest() {//pos
+		List<Reimbursement> rem = new ArrayList<>(mockReqs);
+		when(reqDAO.create(rem.get(1))).thenReturn(1);
+		int result = empServ.submitReimbursementRequest(rem.get(1));
+		assertNotEquals(0, result);
+		
+	}
+	@Test
+	public void testGetRemimbursementRequest() {//pos
+		List<Employee> emps = new ArrayList<>(mockEmps);
+		when(reqDAO.getByRequestor(emps.get(1))).thenReturn(mockReqs);
+		
+		assertTrue(!empServ.getReimbursementRequests(emps.get(1)).isEmpty());
+		
+	}
+	@Test
+	public void testGetComments() {//pos
+		List<Reimbursement> rem = new ArrayList<>(mockReqs);
+		when(comDAO.getByRequestId(rem.get(1).getReqId())).thenReturn(mockComs);
+		Set<Comment> result = empServ.getComments(rem.get(1));
+		
+		assertTrue(!result.isEmpty());
+		
+	}
+	
 }

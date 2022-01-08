@@ -30,8 +30,7 @@ function setupNav() {
     let nav = document.getElementById('nav');
     console.log(loggedInPerson);
     if (!loggedInPerson) {
-        nav.innerHTML = `<span id="navLeft">
-        <a href="index.html"><b>TRMS</b></a>
+        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
         <a hidden>View Requests by Employee id</a>
         <a hidden>Submit a Request</a>
         </span>
@@ -41,31 +40,29 @@ function setupNav() {
 
         document.getElementById('login').addEventListener('click',openLogin);
     } else if (loggedInPerson.role.roleId < 11) {// set for supervisor
-        nav.innerHTML = `<span id="navLeft">
-        <a href="index.html"><b>TRMS</b></a> 
-        <span>&#x1F465</span>
-        <a href="requests.html">View Requests by Employee id</a> 
-        <div>&#x2709
-        <a href="addrequest.html"> Submit a Request</a></span>
-        </div> &#x1F5F8
-        <span><a href="manage.html">Check Pending Requests</a></span> 
-        <span>&#x1F441<a href="view.html">View your Requests</a></span>
+        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft"> 
+        <span></span>
+        <a href="requests.html">&#x1F465 View Requests by id</a> 
+        <div>
+        <a href="addrequest.html">&#x2709 Submit a Request</a></span>
+        </div>
+        <span><a href="manage.html">  &#x1F5F8 Check Pending Requests</a></span> 
+        <span><a href="view.html"> &#x1F441 View your Requests</a></span>
         <span id="navRight"><span>&#x1F916</span> 
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a href="index.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
 
         document.getElementById('logout').addEventListener('click',logOut);
     } else {// default
-        nav.innerHTML = `<span id="navLeft">
-        <a href="index.html"><b>TRMS</b></a>
+        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
         <a hidden>View Requests by Employee id</a>
-        <a href="addrequest.html">Submit a Request</a>
+        <a href="addrequest.html"> &#x2709 Submit a Request</a>
 
-        <span>&#x1F441<a href="view.html">View your Requests</a></span> 
+        <span><a href="view.html"> &#x1F441 View your Requests</a></span> 
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a href="index.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
 
@@ -80,7 +77,7 @@ function openLogin() {
     loginPane.id = 'loginPane';
     loginPane.innerHTML = `
         <form class="loginForm" id="loginForm">
-            <h3>Log In</h3>
+            <h3>You need to be Logged In to Access the Tuition Management System</h3>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username">
             &nbsp;&nbsp;&nbsp;
@@ -129,6 +126,8 @@ async function submitLogin() {
 function logOut() {
     localStorage.removeItem('Token');
     loggedInPerson=null;
+    window.location.href = 'C:/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/index.html';
+   
     checkLogin().then(setupNav);
 
 }
