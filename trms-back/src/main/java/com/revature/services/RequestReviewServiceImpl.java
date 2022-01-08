@@ -18,48 +18,49 @@ import com.revature.data.StatusDAO;
 import com.revature.utils.DAOFactory;
 
 public class RequestReviewServiceImpl implements RequestReviewService {
-	
+
 	private static ReimbursementDAO remDAO = DAOFactory.getReimbursementDAO();
 	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
 	private static StatusDAO statDAO = DAOFactory.getStatusDAO();
 	private static CommentDAO comDAO = DAOFactory.getCommentDAO();
-	static Logger log = LogManager.getLogger(RequestReviewService.class);
-	
+	static Logger log = LogManager.getLogger(RequestReviewServiceImpl.class);
+
 	@Override
 	public Set<Reimbursement> getPendingReimbursements(Employee approver) {// test more// should be good
-		
+
 		Set<Reimbursement> approverReims = new HashSet<>();
-		
+
 		Set<Reimbursement> rems = remDAO.getAll();
-		
+
 		for (Iterator<Reimbursement> it = rems.iterator(); it.hasNext();) {
-			Reimbursement r = it.next(); 
-			if ( r.getStatus().getName() == "Pending Sup" && approver.getEmpId() == r.getRequestor().getSupervisor().getEmpId() ) { 
+			Reimbursement r = it.next();
+			log.info(r);
+			if (r.getStatus().getName() == "Pending Sup"
+					&& approver.getEmpId() == r.getRequestor().getSupervisor().getEmpId()) {
 				approverReims.add(r);
-				
-				}else if(r.getStatus().getName() == "Pending DH" && approver.getEmpId() == r.getRequestor().getSupervisor().getSupervisor().getEmpId()) {// need DH logic
-					//this should pull the sups sup which I set to only be DH
-					approverReims.add(r);
-				}else if(r.getStatus().getName() == "Pending BC" && approver.getEmpId() == 6) {//6 is benCo
-					
-					approverReims.add(r);
-				}
-		}		
-		
+
+			} else if (r.getStatus().getName() == "Pending DH"
+					&& approver.getEmpId() == r.getRequestor().getSupervisor().getSupervisor().getEmpId()) {// need DH
+				// this should pull the sups sup which I set to only be DH
+				approverReims.add(r);
+			} else if (r.getStatus().getName() == "Pending BC" && approver.getEmpId() == 6) {// 6 is benCo
+
+				approverReims.add(r);
+			}
+		}
+
 		return approverReims;
 	}
 
 	@Override
 	public void approveRequest(Reimbursement request) {// should be good
 		Comment com = new Comment();
-		
-		
-		
+
 		com.setRequest(request);
 		com.setSentAt(LocalDateTime.now());
-		
+
 		String approver = getApproverString(request);
-		
+
 		/// checking for logic// trest comeback
 //		if( approver == "Supervisor") 
 //			com.setApprover(request.getRequestor().getSupervisor());
@@ -68,33 +69,28 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 //		else	
 //			com.setApprover(request.getRequestor().getSupervisor().setEmpId();///
 //			
-			
-		
+
 		if (5 > request.getStatus().getStatusId() && request.getStatus().getStatusId() > 1) {
-			com.setCommentText(" ****Approved****\r\n"
-					+" *****System Generated*****\r\n "
-					+"****Approved by " +approver+ "****\r\n");			
+			com.setCommentText(" ****Approved****\r\n" + " *****System Generated*****\r\n " + "****Approved by "
+					+ approver + "****\r\n");
 			request.getStatus().setStatusId(request.getStatus().getStatusId() + 1);// approves request
 			remDAO.update(request);// updates teh request
-		}else if(request.getStatus().getStatusId() == 1 ){// 1 is the appreoved id
-			com.setCommentText(" ****Error****\r\n"
-					+" *****System Generated*****\r\n "
-					+"****Submitted for Approval Duplicate****");// already approved req
-			
-		}else {
-			com.setCommentText(" ****Rejected Reimburesment****\r\n"
-					+" *****System Generated*****\r\n "
-					+"****not available for Aprroval****");// a rejected req, must create a new
-		
-			
+		} else if (request.getStatus().getStatusId() == 1) {// 1 is the appreoved id
+			com.setCommentText(" ****Error****\r\n" + " *****System Generated*****\r\n "
+					+ "****Submitted for Approval Duplicate****");// already approved req
+
+		} else {
+			com.setCommentText(" ****Rejected Reimburesment****\r\n" + " *****System Generated*****\r\n "
+					+ "****not available for Aprroval****");// a rejected req, must create a new
+
 		}
-		
-		if(request.getRequestor().getRole().getName().contains("BenCo") && request.getStatus().getName().contains("BenCo") ) {
+
+		if (request.getRequestor().getRole().getName().contains("BenCo")
+				&& request.getStatus().getName().contains("BenCo")) {
 			request.getStatus().setStatusId(1);// approves request
 			remDAO.update(request);// updates teh request
 		}
-		
-		
+
 		comDAO.create(com);
 	}
 
@@ -102,40 +98,38 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 	public void rejectRequest(Reimbursement request) {// test
 		request.getStatus().setStatusId(5);
 		Comment com = new Comment();
-		
+
 		com.setApprover(null);
 		com.setRequest(request);
 		com.setSentAt(LocalDateTime.now());
-		
+
 		String approver = getApproverString(request);
 
-		com.setCommentText(" ****Rejected by "+ approver +"****\r\n"
-				+" *****System Generated*****\r\n "
-				+"****Must Resubmit****\r\n"+com.getCommentText());
-				comDAO.create(com);
-		
+		com.setCommentText(" ****Rejected by " + approver + "****\r\n" + " *****System Generated*****\r\n "
+				+ "****Must Resubmit****\r\n" + com.getCommentText());
+		comDAO.create(com);
+
 	}
 
 	@Override
-	public void rejectRequest(Reimbursement request, Comment comment) {//test
+	public void rejectRequest(Reimbursement request, Comment comment) {// test
 		request.getStatus().setStatusId(5);
 		String approver = getApproverString(request);
 		comment.setRequest(request);
-		comment.setCommentText(" ****Rejected by "+ approver +"****\r\n"
-		+" *****System Generated*****\r\n "
-		+"****Must Resubmit****\r\n"+comment.getCommentText());
+		comment.setCommentText(" ****Rejected by " + approver + "****\r\n" + " *****System Generated*****\r\n "
+				+ "****Must Resubmit****\r\n" + comment.getCommentText());
 		comDAO.create(comment);
 	}
-	
+
 	private static String getApproverString(Reimbursement request) {
 		String approver = "";
-		if(request.getStatus().getName().contains("Sup")  ) 
+		if (request.getStatus().getName().contains("Sup"))
 			approver = "Supervisor";
-		else if(request.getStatus().getName().contains("DH"))
+		else if (request.getStatus().getName().contains("DH"))
 			approver = "Dept. Head";
-		else if(request.getStatus().getName().contains("BC"))
+		else if (request.getStatus().getName().contains("BC"))
 			approver = "BenCo";
-		
+
 		return approver;
 	}
 

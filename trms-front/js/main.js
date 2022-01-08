@@ -1,7 +1,6 @@
-let reqAppUrl ='http://localhost:8080/';
+//let reqAppUrl ='http://localhost:8080/';
 
 getEmployees();
-//getPetsAjax();
 
 async function getEmployees() {
     let response = await fetch(reqAppUrl + 'employee');  //requestor/4');
