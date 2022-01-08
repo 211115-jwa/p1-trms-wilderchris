@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.revature.controllers.EmployeesController;
 import com.revature.controllers.RequestsController;
+import com.revature.controllers.ReviewsController;
 import com.revature.controllers.UsersController;
 
 public class TRMSApp {
@@ -46,10 +47,10 @@ with Selenium using your Cucumber feature files.
 		});
 		
 		app.routes(() -> {
-			path("/employees", () -> {
-				get(EmployeesController::viewAllEmployees);
+			path("/pending/{id}", () -> {
+				get(ReviewsController::getByApprover);
 
-				path("/id/{empId}", () -> {
+				path("/id/{empId}", () -> {//?
 					get(EmployeesController::viewEmployeeById);
 
 				});
