@@ -666,3 +666,46 @@
 2022-01-06 20:54:43 INFO  ReimbursementDAOTest:134 - null
 2022-01-06 21:02:27 INFO  Department:28 - Department [deptId=2, name=Finance, deptHeadId=2]
 2022-01-06 21:02:29 INFO  Department:35 - null
+2022-01-07 14:34:21 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 16:32:11 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 16:33:15 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 16:35:54 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 16:38:26 INFO  RequestsController:42 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=10, firstName=Bob, lastName=Mum, username=wild, password=pass, role=Role [roleId=9, name=Sales Manager], funds=863.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=5, name=Executive, deptHeadId=1]], eventDate=2022-05-28, eventTime=09:44:03, location=158 Northview Place, description=Lap remove rem ova/tube, cost=2111.0, gradingFormat=GradingFormat [formatId=1, name=Awarded, example=A], eventType=EventType [eventId=1, name=University Courses, percentCovered=80.0], status=Status [statusId=1, name=Approved, approver=BenCo], submittedAt=null],   :
+2022-01-07 16:38:27 INFO  EmployeeServiceImpl:57 - intialStatus var value:  Status [statusId=3, name=Pending DH, approver=Dept.Head]
+2022-01-07 19:46:34 INFO  RequestsController:42 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=2, firstName=Homer, lastName=Hanbury-Brown, username=homer, password=pass, role=Role [roleId=1, name=CEO], funds=722.0, supervisor=Employee [empId=9, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=1, name=Executive, deptHeadId=1]], eventDate=2022-01-24, eventTime=22:49:01, location=sdfbdfgdfg, description=adfgadsgagfr, cost=44.0, gradingFormat=GradingFormat [formatId=1, name=Other, example=null], eventType=EventType [eventId=1, name=Other, percentCovered=30.0], status=Status [statusId=4, name=Pending Sup, approver=Supervisor], submittedAt=null],   :
+2022-01-07 19:46:35 INFO  EmployeeServiceImpl:57 - intialStatus var value:  Status [statusId=4, name=Pending Sup, approver=Supervisor]
+2022-01-07 22:34:26 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:35:11 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:35:41 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:36:02 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:36:16 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 22:40:44 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 22:50:58 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:51:32 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:54:08 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 22:54:45 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:05:52 INFO  RequestsController:42 - submitting request object: Reimbursement [reqId=0, requestor=Employee [empId=13, firstName=Kessia, lastName=Rawdall, username=bart, password=pass, role=Role [roleId=17, name=Clerk], funds=523.0, supervisor=Employee [empId=11, firstName=null, lastName=null, username=null, password=null, role=null, funds=0.0, supervisor=null, department=null], department=Department [deptId=3, name=Executive, deptHeadId=1]], eventDate=2022-01-23, eventTime=16:10:01, location=123 data rd, hubert, AL, description=blah blah, cost=222.0, gradingFormat=GradingFormat [formatId=1, name=Other, example=null], eventType=EventType [eventId=1, name=Other, percentCovered=30.0], status=Status [statusId=4, name=Pending Sup, approver=Supervisor], submittedAt=null],   :
+2022-01-07 23:05:52 INFO  EmployeeServiceImpl:57 - intialStatus var value:  Status [statusId=4, name=Pending Sup, approver=Supervisor]
+2022-01-07 23:06:04 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:19:36 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:20:47 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:21:04 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:21:40 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:22:44 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:22:53 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:22:57 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:27:35 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:27:44 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:27:48 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:33:52 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:36:40 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:43:49 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:44:13 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:45:12 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:45:24 INFO  RequestsController:76 - getting all of the requestor requests: 10
+2022-01-07 23:50:47 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:51:37 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:51:43 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:56:13 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:56:28 INFO  RequestsController:76 - getting all of the requestor requests: 13
+2022-01-07 23:56:32 INFO  RequestsController:76 - getting all of the requestor requests: 13

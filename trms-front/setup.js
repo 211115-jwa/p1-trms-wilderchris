@@ -32,8 +32,7 @@ function setupNav() {
     if (!loggedInPerson) {
         nav.innerHTML = `<span id="navLeft">
         <a href="index.html"><b>TRMS</b></a>
-        <span>&#128181</span>
-        <a href="requests.html">View Requests by Employee id</a>
+        <a hidden>View Requests by Employee id</a>
         <a hidden>Submit a Request</a>
         </span>
         <span id="navRight">
@@ -41,26 +40,29 @@ function setupNav() {
         </span>`;
 
         document.getElementById('login').addEventListener('click',openLogin);
-    } else if (loggedInPerson.role.name !== 'Employee') {
+    } else if (loggedInPerson.role.roleId < 11) {// set for supervisor
         nav.innerHTML = `<span id="navLeft">
-        <a href="index.html"><b>TRMS</b></a>
-        <span>&#128181</span>
-        <a href="requests.html">View Requests by Employee id</a>
-        <a href="addrequest.html">Submit a Request</a>
-        </span>
-        <span id="navRight">
+        <a href="index.html"><b>TRMS</b></a> 
+        <span>&#x1F465</span>
+        <a href="requests.html">View Requests by Employee id</a> 
+        <div>&#x2709
+        <a href="addrequest.html"> Submit a Request</a></span>
+        </div> &#x1F5F8
+        <span><a href="manage.html">Check Pending Requests</a></span> 
+        <span>&#x1F441<a href="view.html">View your Requests</a></span>
+        <span id="navRight"><span>&#x1F916</span> 
         <a href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
 
         document.getElementById('logout').addEventListener('click',logOut);
-    } else {
+    } else {// default
         nav.innerHTML = `<span id="navLeft">
         <a href="index.html"><b>TRMS</b></a>
-        <span>&#128181</span>
-        <a href="requests.html">View Requests by Employee id</a>
+        <a hidden>View Requests by Employee id</a>
         <a href="addrequest.html">Submit a Request</a>
-        // <a href="admin.html">Admin</a>
+
+        <span>&#x1F441<a href="view.html">View your Requests</a></span> 
         </span>
         <span id="navRight">
         <a href="manage.html">${loggedInPerson.username}</a>
@@ -85,8 +87,7 @@ function openLogin() {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
             <button id="loginBtn" type="button">Submit</button>
-        </form>
-    `;
+        </form>`;
     document.getElementsByTagName('main')[0].insertAdjacentElement("beforebegin",loginPane);
 
     document.getElementById('loginBtn').addEventListener('click', submitLogin);
@@ -129,4 +130,6 @@ function logOut() {
     localStorage.removeItem('Token');
     loggedInPerson=null;
     checkLogin().then(setupNav);
+
 }
+
