@@ -14,18 +14,26 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.beans.Department;
 import com.revature.beans.Employee;
 import com.revature.beans.EventType;
 import com.revature.beans.GradingFormat;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.Role;
 import com.revature.beans.Status;
+import com.revature.data.EmployeeDAO;
 import com.revature.data.ReimbursementDAO;
+import com.revature.data.StatusDAO;
 import com.revature.utils.ConnectionUtil;
+import com.revature.utils.DAOFactory;
 
 public class ReimbursementPostgres implements ReimbursementDAO {
 	private ConnectionUtil connUtil = ConnectionUtil.getConnectionUtil();
 	private static Logger log = LogManager.getLogger(ReimbursementPostgres.class);
 	
+	
+	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
+	//private StatusDAO statDAO = DAOFactory.getStatusDAO();
 	
 	@Override
 	public int create(Reimbursement dataToAdd) {//1
@@ -360,7 +368,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 			while (resultSet.next()) {
 				Reimbursement request = new Reimbursement();
 				request.setReqId(resultSet.getInt("req_id"));
-				request.getRequestor().setEmpId(resultSet.getInt("emp_id"));
+				//request.getRequestor().setEmpId(resultSet.getInt("emp_id"));//);
+				request.setRequestor(empDAO.getById(resultSet.getInt("emp_id")));// dao returns full emp
+				
 				request.setEventDate(resultSet.getDate("event_date").toLocalDate());
 				request.setEventTime(resultSet.getTime("event_time").toLocalTime());
 				request.setLocation(resultSet.getString("location"));

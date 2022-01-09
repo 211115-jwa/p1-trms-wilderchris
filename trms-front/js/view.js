@@ -1,6 +1,6 @@
 
 
-setTimeout(getRequests,5000);
+setTimeout(getRequests,2000);
 async function getRequests() {
     checkLogin().then(setupNav);
 

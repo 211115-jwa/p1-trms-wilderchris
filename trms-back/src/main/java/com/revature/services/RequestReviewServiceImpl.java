@@ -1,8 +1,9 @@
 package com.revature.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
@@ -11,40 +12,42 @@ import org.apache.logging.log4j.Logger;
 import com.revature.beans.Comment;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.Status;
 import com.revature.data.CommentDAO;
 import com.revature.data.ReimbursementDAO;
+import com.revature.data.StatusDAO;
 import com.revature.utils.DAOFactory;
 
 public class RequestReviewServiceImpl implements RequestReviewService {
 
 	private static ReimbursementDAO remDAO = DAOFactory.getReimbursementDAO();
-	//private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
-	//private static StatusDAO statDAO = DAOFactory.getStatusDAO();
+	private static StatusDAO statDAO = DAOFactory.getStatusDAO();
 	private static CommentDAO comDAO = DAOFactory.getCommentDAO();
 	static Logger log = LogManager.getLogger(RequestReviewServiceImpl.class);
 
 	@Override
-	public Set<Reimbursement> getPendingReimbursements(Employee approver) {// test more// should be good
-		Set<Reimbursement> approverReims = new HashSet<>();
-		Set<Reimbursement> rems = remDAO.getAll();
-
-		for (Iterator<Reimbursement> it = rems.iterator(); it.hasNext();) {
-			Reimbursement r = it.next();
-			log.info(r);
-			if (r.getStatus().getName().contains("Sup")
-					&& approver.getEmpId() == r.getRequestor().getSupervisor().getEmpId()) {
-				log.info(" the r:"+ r);
-				log.info(r.getRequestor().getSupervisor().getEmpId());
-				approverReims.add(r);
-			} else if (r.getStatus().getName().contains("Dh")
-					&& approver.getEmpId() == r.getRequestor().getSupervisor().getSupervisor().getEmpId()) {// need DH
-				approverReims.add(r);
-			} else if (r.getStatus().getName().contains("BC") && approver.getEmpId() == 6) {// 6 is benCo
-				approverReims.add(r);
-			}
+	public Set<Reimbursement> getPendingReimbursements(Employee approver) {
+		Set<Reimbursement> sup = new HashSet<>();
+			
+		if(7 <= approver.getRole().getRoleId() || approver.getRole().getRoleId()  <= 11 ) {
+			Set<Status> stats = statDAO.getByName("Pending Sup");
+		log.info( stats);
+			List<Status> s = new ArrayList<>(stats);
+			
+			sup = remDAO.getByStatus(s.get(0));
+		log.info(sup);
+			}else if(1<= approver.getRole().getRoleId() || approver.getRole().getRoleId() <= 5) {
+			Set<Status> stats = statDAO.getByName("Pending DH");
+			List<Status> s = new ArrayList<>(stats);
+			sup = remDAO.getByStatus(s.get(0));
+		}else if( approver.getRole().getRoleId() == 6) {
+			Set<Status> stats = statDAO.getByName("Pending BC");
+			List<Status> s = new ArrayList<>(stats);
+			sup = remDAO.getByStatus(s.get(0));
 		}
-		log.info(approverReims);
-	return approverReims;
+		
+		Set<Reimbursement> sts = new HashSet<>(sup);
+	return sts;
 	}
 
 	@Override
@@ -83,7 +86,7 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 		if (request.getRequestor().getRole().getName().contains("BenCo")
 				&& request.getStatus().getName().contains("BenCo")) {
 			request.getStatus().setStatusId(1);// approves request
-			remDAO.update(request);// updates teh request
+			remDAO.update(request);// updates the request
 		}
 
 		comDAO.create(com);

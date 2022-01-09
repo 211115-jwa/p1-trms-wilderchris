@@ -9,4 +9,4 @@ import com.revature.beans.Status;
 public interface ReimbursementDAO extends GenericDAO<Reimbursement> {
 	public Set<Reimbursement> getByRequestor(Employee requestor);
 	public Set<Reimbursement> getByStatus(Status status);
-}
+	}

@@ -22,16 +22,18 @@ public class ReviewsController {
 	private static Set<Reimbursement> rems = new HashSet<>();
 	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
 	
+	
+	
 	public static void getByApprover(Context ctx) {
 		String approverId = ctx.pathParam("id");
-		log.info("getting requests for approver:: " + approverId);
+		//log.info("getting requests for approver:: " + approverId);
 		
 		try {	
 			
 			Employee approver = empDAO.getById( Integer.valueOf(approverId));
 			rems = revServ.getPendingReimbursements(approver);
-			log.info("employee: " + approver);
-			log.info(rems);
+			//log.info("employee: " + approver);
+			//log.info(rems);
 			if (rems != null) {
 				ctx.json(rems);
 			} else {

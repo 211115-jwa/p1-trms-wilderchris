@@ -50,12 +50,12 @@ async function submitRequest() {
     }
     else{
 
-
-        let file = document.getElementById("file").files[0];
-        let formData = new FormData();
+// file attach needs server
+       // let file = document.getElementById("file").files[0];
+       // let formData = new FormData();
      
-        formData.append("file", file);
-        fetch('C/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/upload', {method: "POST", body: formData});
+       // formData.append("file", file);
+       // fetch('C/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/upload', {method: "POST", body: formData});
         
         let response = await fetch(reqAppUrl + 'requests', {
         method: 'POST',

@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.revature.beans.Comment;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
@@ -27,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private ReimbursementDAO reqDao = DAOFactory.getReimbursementDAO();
 	private CommentDAO commentDao = DAOFactory.getCommentDAO();
 	private EmployeeDAO empDao = DAOFactory.getEmployeeDAO();
-	private static Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
+	//private static Logger log = LogManager.getLogger(EmployeeServiceImpl.class);
 
 	@Override
 	public Map<String, Set<Object>> getRequestOptions() {
