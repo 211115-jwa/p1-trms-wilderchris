@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+
 import com.revature.pages.TrmsRequestPage;
 
 import io.cucumber.java.en.Given;
@@ -17,7 +19,7 @@ import io.cucumber.java.en.When;
 public class TrmsRequestStepImpl {
 	private WebDriver driver;
 	private TrmsRequestPage trmsRPage;
-	//FluentWait wait = new FluentWait(driver);
+	private FluentWait wait = new FluentWait(driver);
 	
 	{
 	File file = new File("src/test/resources/chromedriver.exe");

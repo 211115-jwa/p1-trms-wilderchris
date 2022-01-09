@@ -21,6 +21,9 @@ import com.revature.utils.DAOFactory;
 
 public class RequestReviewServiceImpl implements RequestReviewService {
 
+	
+	private static EmployeeService empServ = new EmployeeServiceImpl();
+
 	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
 	private static ReimbursementDAO remDAO = DAOFactory.getReimbursementDAO();
 	private static StatusDAO statDAO = DAOFactory.getStatusDAO();
@@ -82,7 +85,9 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 			remDAO.update(request);// updates the request
 		}
 		double fund = request.getRequestor().getFunds() - costCalc(request);
-		Employee e = request.getRequestor();
+		Employee e = new Employee();
+		e = empServ.getEmployeeById(request.getRequestor().getEmpId());
+		
 		e.setFunds(fund);
 		empDAO.update(e);
 		comDAO.create(com);
@@ -90,7 +95,7 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 
 	@Override
 	public void rejectRequest(Reimbursement request) {// test
-		request.getStatus().setStatusId(5);
+		
 		Comment com = new Comment();
 
 		com.setApprover(null);
@@ -103,6 +108,10 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 				+ "****Must Resubmit****\r\n" + com.getCommentText());
 
 		com.setApprover(request.getRequestor().getSupervisor());
+		Reimbursement r = new Reimbursement();
+		r = remDAO.getById(request.getReqId());
+		r.getStatus().setStatusId(5);
+		remDAO.update(r);
 		comDAO.create(com);
 
 	}

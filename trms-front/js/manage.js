@@ -1,35 +1,34 @@
 
+checkLogin();
 
-setTimeout(getRequests,2000);
+setTimeout(getRequests,1000);
 
 async function getRequests() {
     
    let id = loggedInPerson.empId;
-   let response = await fetch(reqAppUrl + 'pending/' + id);
+   let tokenHeader = {"Token":loggedInPerson.id};
+   let response = await fetch(reqAppUrl + 'requests/pending/' + id, { headers:tokenHeader});
     
 
-    if (response.status === 200){// || response == '') {
-        let requests = await response.json();
-        
-        console.log(requests);
-        showRequests(requests);
+   if (response.status === 200) {
+    let requests = await response.json();
+    console.log(requests);
+    showRequests(requests);
+}
 
-    }else if(response == ''){
-        alert('response is empty');// fix later
-    
-    }else{
-    alert('404 Not Found: no Request by ID exists');
-    }
 }
 
 function showRequests(requests) {
+    let i = 0;
+  
+        
     
 
     let requestsTable = document.getElementById('allRequests');//all
    
 
 
-       let i = 0;
+     
       for (let req of requests) {
         let rowForRequests = document.createElement('tr');
         let submitted = requests[i].submittedAt;
@@ -110,8 +109,8 @@ function showRequests(requests) {
             }else{
                
             //     column = document.createElement('td');
-            //      column.innerHTML=`<button id="view${employees.empId}">View</button>`;
-            //  rowForRequests.appendChild(column1);
+            //      column.innerHTML=`<button id="view${employees.empId}">View</button>`;// open the view and update page
+            //  rowForRequests.appendChild(column1);        
              }
              
         }
@@ -119,18 +118,24 @@ function showRequests(requests) {
         requestsTable.appendChild(rowForRequests);
          
     }
+
+ 
     document.getElementById(`accbutton`).onclick = acceptRequests;
     document.getElementById(`rejbutton`).onclick = rejectRequests;
+
 }
-async function acceptRequests(){
+
+
+async function acceptRequests(){// sends an accept
 
     let userInput = document.getElementById('input').value;
-    
-    let response = await fetch(reqAppUrl + 'approve/' + userInput);
+    let tokenHeader = {"Token":loggedInPerson.id};
+    let response = await fetch(reqAppUrl + 'requests/approve/' + userInput, { headers:tokenHeader});
 
 
     if (response.status === 200){// || response == '') {
-        alert('Approved Request: ' + userInput);
+        alert('Approved Request: ' + userInput + " \r\nand Posted a Comment.");
+        location.reload();
 
     }else if(response == ''){
         alert('response is empty');// fix later
@@ -140,17 +145,19 @@ async function acceptRequests(){
     }
 }
 
-async function rejectRequests(){
+async function rejectRequests(){// sends a reject
     let userInput = document.getElementById('input').value;
-    
-    let response = await fetch(reqAppUrl + 'reject/' + userInput);
+
+    let tokenHeader = {"Token":loggedInPerson.id};
+    let response = await fetch(reqAppUrl + 'requests/reject/' + userInput, { headers:tokenHeader});
 
     
     if (response.status === 200){// || response == '') {
-        alert('Rejected Request: '+ userInput);
-        
+        alert('Rejected Request: '+ userInput + "\r\n and Posted comment");
+    location.reload();
+
     }else if(response == ''){
-        alert('response is empty');// fix later
+        alert('response is empty');//
     
     }else{
     alert('404 Not Found: no Request by ID exists');

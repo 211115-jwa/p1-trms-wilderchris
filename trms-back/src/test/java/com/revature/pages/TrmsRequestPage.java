@@ -31,7 +31,7 @@ private WebDriver driver;
 	}
 
 	public void navigateToRequests() {
-		driver.get("file:///C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/requests.html");
+		driver.get("file:///C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html");
 	}
 	
 	public void submitLogin(String username, String password) {

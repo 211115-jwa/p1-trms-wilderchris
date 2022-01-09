@@ -11,7 +11,7 @@ checkLogin().then(setupNav);
 async function checkLogin() {
     let personId = localStorage.getItem('Token');
     if (personId) {
-        let response = await fetch(reqAppUrl + 'users/' + personId + '/auth');
+        let response = await fetch(reqAppUrl + 'login/' + personId + '/auth');
         if (response.status === 200) {
             loggedInPerson = await response.json();
         }
@@ -19,7 +19,7 @@ async function checkLogin() {
 }
 
 function setupNav() {
-    let nav = document.getElementById('nav');
+    let nav = document.getElementById('nav');// only button is visible if not logged in
     console.log(loggedInPerson);
     if (!loggedInPerson) {
         nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
@@ -36,7 +36,7 @@ function setupNav() {
         <span></span>
         <a href="requests.html">&#x1F465 View Requests by id</a> 
         <div>
-        <a href="addrequest.html">&#x2709 Submit a Request</a></span>
+        <a href="subrequest.html">&#x2709 Submit a Request</a></span>
         </div>
         <span><a href="manage.html">  &#x1F5F8 Check Pending Requests</a></span> 
         <span><a href="view.html"> &#x1F441 View your Requests</a></span>
@@ -49,7 +49,7 @@ function setupNav() {
     } else {// default
         nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
         <a hidden>View Requests by Id</a>
-        <a href="addrequest.html"> &#x2709 Submit a Request</a>
+        <a href="subrequest.html"> &#x2709 Submit a Request</a>
 
         <span><a href="view.html"> &#x1F441 View your Requests</a></span> 
         </span>
@@ -103,7 +103,7 @@ async function submitLogin() {
         'password':password
     };
 
-    let response = await fetch(reqAppUrl + 'users/auth',{method:'POST',body:JSON.stringify(credentials)});
+    let response = await fetch(reqAppUrl + 'login/auth',{method:'POST',body:JSON.stringify(credentials)});
     if (response.status===200) {
         let token = await response.text();
         localStorage.setItem('Token', token);
@@ -118,7 +118,7 @@ async function submitLogin() {
 function logOut() {
     localStorage.removeItem('Token');
     loggedInPerson=null;
-    window.location.href = 'C:/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/index.html';
+    window.location.href = 'C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html';
    
     checkLogin().then(setupNav);
 

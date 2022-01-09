@@ -1,14 +1,16 @@
 
+checkLogin();
 
-setTimeout(getRequests,2000);
+setTimeout(getRequests,3000);
 async function getRequests() {
-    checkLogin().then(setupNav);
+    //checkLogin().then(setupNav);
 
    let eid = loggedInPerson.empId;
    console.log(loggedInPerson);
     
-    let response = await fetch(reqAppUrl + 'requests/requestor/' + eid);// fix logic
-    
+
+   let tokenHeader = {"Token":loggedInPerson.id};
+    let response = await fetch(reqAppUrl + 'requests/requestor/' + eid, { headers:tokenHeader});// fix logic
 
     if (response.status === 200){// || response == '') {
         let requests = await response.json();
@@ -60,12 +62,10 @@ function showRequests(requests) {
        // console.log(employees);
         let rowForRequests = document.createElement('tr');
         
-        // for each field in the request (yes, we can iterate through fields)
+      
         for (let field in req) {
            
-        
-                    //
-             if (field == 'requestor'){
+           if (field == 'requestor'){
             let column = document.createElement('td');
             column.innerText = employees.empId;
             rowForRequests.appendChild(column);
