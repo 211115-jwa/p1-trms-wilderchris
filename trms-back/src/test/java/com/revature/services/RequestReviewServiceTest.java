@@ -140,7 +140,7 @@ public class RequestReviewServiceTest {
 	
 	@Test
 	public void testRejectRequestwithComment() {
-		List<Reimbursement> rems = new ArrayList<>(mockReqs);
+		//List<Reimbursement> rems = new ArrayList<>(mockReqs);
 		List<Comment> coms = new ArrayList<>(mockComs);
 		
 		when(comDAO.create(coms.get(0))).thenReturn(null);

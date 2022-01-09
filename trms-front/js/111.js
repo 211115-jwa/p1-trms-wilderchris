@@ -71,40 +71,44 @@ while (Parent.hasChildNodes()) {
             let column = document.createElement('td');
             column.innerText = employees.empId;
             rowForRequests.appendChild(column);
-            let column1 = document.createElement('td');
+            //let column1 = document.createElement('td');
             column1.innerText = (employees.firstName +" " + employees.lastName);
             rowForRequests.appendChild(column1);
 
              }else if(field == 'eventDate'){ 
-                let column = document.createElement('td');
+               // let column = document.createElement('td');
                 column.innerText = (eDate);
                 rowForRequests.appendChild(column);
             }else if(field == 'eventTime'){ 
-                let column = document.createElement('td');
+               // let column = document.createElement('td');
                 column.innerText = (eTime);
                 rowForRequests.appendChild(column);
             }else if(field == 'gradingFormat'){ 
-                let column = document.createElement('td');
+                //let column = document.createElement('td');
                 column.innerText = (gFormat);
                 rowForRequests.appendChild(column);
             }else if(field == 'eventType'){ 
-                let column = document.createElement('td');
+                //let column = document.createElement('td');
                 column.innerText = (eType);
                 rowForRequests.appendChild(column);
             }else if(field == 'status'){ 
-                let column = document.createElement('td');
+               // let column = document.createElement('td');
                 column.innerText = (stat);
                 rowForRequests.appendChild(column);
             }else if(field == 'submittedAt'){ 
-                let column = document.createElement('td');
+                //let column = document.createElement('td');
                 column.innerText = (sub);
                 rowForRequests.appendChild(column);
             }else{
                 let column = document.createElement('td');
-               column.innerText = req[field];
+                column.innerText = req[field];
                 rowForRequests.appendChild(column);
+                let column2 = document.createElement('td');
+                column2.innerHTML=`<button id="adopt${pet.id}">Adopt</button>`;
+                //column2.innerHTML('<label for"Accept">Accept</label> <input type="aRadio" id="Accept"> <input type="rRadio" id="Reject"> ');
+             rowForRequests.appendChild(column2);
              }
-            
+           
         }
         i++;
             requestsTable.appendChild(rowForRequests);

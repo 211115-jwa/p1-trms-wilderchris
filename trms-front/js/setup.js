@@ -1,18 +1,13 @@
 "use strict";
 
-// global variables to be referenced in other scripts
+
 let reqAppUrl = 'http://localhost:8080/';
 let loggedInPerson;
 
-// async functions implicitly return promises, so you
-// can set a callback function for after the promise/function
-// is resolved. here, i'm having the "setupNav" be called
-// after checkLogin resolves.
+
 checkLogin().then(setupNav);
 
-// this checks if someone is currently logged in in the
-// browser session (local storage) then retrieves their info
-// before setting up the page
+
 async function checkLogin() {
     let personId = localStorage.getItem('Token');
     if (personId) {
@@ -23,9 +18,6 @@ async function checkLogin() {
     }
 }
 
-// sets up the nav bar that appears on all pages
-// depending on whether the user is logged in and
-// what their role is
 function setupNav() {
     let nav = document.getElementById('nav');
     console.log(loggedInPerson);
@@ -56,7 +48,7 @@ function setupNav() {
         document.getElementById('logout').addEventListener('click',logOut);
     } else {// default
         nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
-        <a hidden>View Requests by Employee id</a>
+        <a hidden>View Requests by Id</a>
         <a href="addrequest.html"> &#x2709 Submit a Request</a>
 
         <span><a href="view.html"> &#x1F441 View your Requests</a></span> 
@@ -126,9 +118,12 @@ async function submitLogin() {
 function logOut() {
     localStorage.removeItem('Token');
     loggedInPerson=null;
-    window.location.href = 'C:/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/index.html';
+    window.location.href = 'C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html';
    
     checkLogin().then(setupNav);
 
 }
 
+//desktop  C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html
+
+//laptop   C:/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/index.html
