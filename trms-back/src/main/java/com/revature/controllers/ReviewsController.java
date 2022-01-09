@@ -3,9 +3,6 @@ package com.revature.controllers;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
 import com.revature.data.EmployeeDAO;
@@ -18,7 +15,7 @@ import io.javalin.http.Context;
 
 public class ReviewsController {
 
-	private static Logger log = LogManager.getLogger(ReviewsController.class);
+	//private static Logger log = LogManager.getLogger(ReviewsController.class);
 	private static RequestReviewService revServ = new RequestReviewServiceImpl();
 	private static Set<Reimbursement> rems = new HashSet<>();
 	private static EmployeeDAO empDAO = DAOFactory.getEmployeeDAO();
