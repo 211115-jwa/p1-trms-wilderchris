@@ -1,4 +1,3 @@
-
 package com.revature.app;
 
 import io.javalin.Javalin;
@@ -7,76 +6,76 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 import com.revature.controllers.EmployeesController;
 import com.revature.controllers.RequestsController;
-import com.revature.controllers.UsersController;
+import com.revature.controllers.LoginController;
 import com.revature.controllers.ReviewsController;
-
 
 public class TRMSApp {
 
-/*	
- choose at least three features that you want to add to the application based on the
-specifications provided. Use BDD with Cucumber to plan the expected behavior of features, 
-then implement each feature using Agile methodology. Test each feature that you've added 
-with Selenium using your Cucumber feature files.
-	
-	*/
-	
+	/*
+	Use BDD with Cucumber to plan the expected
+	 * behavior of features, then implement each feature using Agile methodology.
+	 * Test each feature that you've added with Selenium using your Cucumber feature
+	 * files.
+	 * 
+	 */
+
 	public static void main(String[] args) {
 		Javalin app = Javalin.create(config -> {
-			
+
 			config.enableCorsForAllOrigins();
 		}).start();
 
-		app.before("/reqs/*", ctx -> {
+		app.before("/requests/*/*", ctx -> {
 			if (!ctx.method().equals("OPTIONS")) {
 				ctx.header("Access-Control-Allow-Headers", "Token");
-			    ctx.header("Access-Control-Expose-Headers", "Token");
-				
+				ctx.header("Access-Control-Expose-Headers", "Token");
+
 				String token = ctx.header("Token");
-				if (token==null) ctx.status(HttpCode.UNAUTHORIZED);
+				if (token == null)
+					ctx.status(HttpCode.UNAUTHORIZED);
+					ctx.result("  and this");
 			}
+		
 		});
 		
+		
 		app.routes(() -> {
-			path("/pending/{id}", () -> {// /pending/id
-				get(ReviewsController::getByApprover);
 
-				path("/id/{empId}", () -> {//?
-					get(EmployeesController::viewEmployeeById);
-
-				});                  
-			});
-			path("/approve/{id}", () -> {// /approve/{id}
-				get(ReviewsController::ApproveRequest);
-			});
-				path("/reject/{id}", () -> {//?
-					get(ReviewsController::RejectRequest);
-
-				                  
-			});
-			path("/requests", () -> {
+			path("/requests/", () -> {
 				post(RequestsController::submitReimbursementRequest);
 
-				path("/requestor/{id}", () -> {// /requests/requestor/id
+				path("pending/{id}", () -> {// requests/pending/id
+					get(ReviewsController::getByApprover);
+				});
+				path("approve/{id}", () -> {// request/approve/{id}
+					get(ReviewsController::ApproveRequest);
+				});
+				path("reject/{id}", () -> {// requests/reject/{id}
+					get(ReviewsController::RejectRequest);
+				});
+				path("requestor/{id}", () -> {// /requests/requestor/id
 					get(RequestsController::getRequestsByRequestor);
-
 				});
 			});
-		
-			path("/users", () -> {
-				post(UsersController::register); // register
+
+			
+	
+
+					
+			path("/login", () -> {
+				post(LoginController::register); // register
 				path("/auth", () -> {
-					post(UsersController::logIn); // login
+					post(LoginController::logIn); // login
 				});
 				path("/{id}", () -> {
-					get(UsersController::getUserById); // get user by id
-					put(UsersController::updateUser); // update user
+					get(EmployeesController::viewEmployeeById); // get user by id
+					put(LoginController::updateUser); // update user
 					path("/auth", () -> {
-						get(UsersController::checkLogin); // check login
+						get(LoginController::checkLogin); // check login
 					});
 				});
 			});
 		});
 	}
-	
+
 }

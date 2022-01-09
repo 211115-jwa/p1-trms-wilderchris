@@ -7,8 +7,8 @@ document.getElementById(`reqbutton`).onclick = getRequests;
 async function getRequests() {
 
     let userInput = document.getElementById('dataInput').value; 
-
-    let response = await fetch(reqAppUrl + 'requests/requestor/' + userInput);
+    let tokenHeader = {"Token":loggedInPerson.id};
+    let response = await fetch(reqAppUrl + 'requests/requestor/' + userInput, { headers:tokenHeader});
     
 
     if (response.status === 200){// || response == '') {

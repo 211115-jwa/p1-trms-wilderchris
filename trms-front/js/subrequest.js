@@ -50,40 +50,52 @@ async function submitRequest() {
     }
     else{
 
-// file attach needs server
+       let formatter = new Intl.NumberFormat('en-US', {// currency formatter
+            style: 'currency',
+            currency: 'USD',
+          });
+
+
+                    // file attachment needs server??
        // let file = document.getElementById("file").files[0];
        // let formData = new FormData();
      
        // formData.append("file", file);
        // fetch('C/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/upload', {method: "POST", body: formData});
-        
+       
+       let tokenHeader = {"Token":loggedInPerson.id};
         let response = await fetch(reqAppUrl + 'requests', {
         method: 'POST',
-        body: JSON.stringify(request),
+        body: JSON.stringify(request)
+        ,  headers:tokenHeader
         });
         if (response.status === 201) {
             cost = loggedInPerson.funds - costCalc(cost);
-        alert("Request has been sent\r\n Pending Request is approved the \r\n balance of $"
-        + cost + " will be left from your account\r\n  for the rest of the year.");
+        alert("Request has been sent\r\n Pending Request is approved the \r\n balance of "
+        + formatter.format(cost) + " will be left from your account\r\n  for the rest of the year.");
         }
         else
             alert("Something went wrong");
     }    
+
+    function costCalc(c){
+        if (etp == 1 ){
+            c = c * .80;
+        }else if (etp == 2){
+            c = c * .6;
+        }else if (etp == 3){
+            c = c * .75;
+        }else if (etp == 4){
+            c = c * 1;
+        }else if (etp == 5){
+            c = c * .9;
+        }else 
+            c = c * .3;
+        
+        
+        return c;
+         }
+
+
 }
- function costCalc(c){
-if (etp == 1 ){
-    c = c * .80;
-}else if (etp == 2){
-    c = c * .6;
-}else if (etp == 3){
-    c = c * .75;
-}else if (etp == 4){
-    c = c * 1;
-}else if (etp == 5){
-    c = c * .9;
-}else 
-    c = c * .3;
-
-
-return c;
- }
+ 
