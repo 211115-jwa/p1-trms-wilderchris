@@ -118,7 +118,7 @@ async function submitLogin() {
 function logOut() {
     localStorage.removeItem('Token');
     loggedInPerson=null;
-    window.location.href = 'C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html';
+    window.location.href = 'C:/Users/cwild/Documents/revature/p1-trms-wilderchris/trms-front/index.html';
    
     checkLogin().then(setupNav);
 
