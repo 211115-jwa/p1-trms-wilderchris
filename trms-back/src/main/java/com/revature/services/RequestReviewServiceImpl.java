@@ -71,7 +71,7 @@ public class RequestReviewServiceImpl implements RequestReviewService {
 		if (5 > request.getStatus().getStatusId() && request.getStatus().getStatusId() > 1) {
 			com.setCommentText(" ****Approved****\r\n" + " *****System Generated*****\r\n " + "****Approved by "
 					+ approver + "****\r\n");
-			request.getStatus().setStatusId(request.getStatus().getStatusId() + 1);// approves request
+			request.getStatus().setStatusId(request.getStatus().getStatusId() - 1);// approves request
 			remDAO.update(request);// updates teh request
 		} else if (request.getStatus().getStatusId() == 1) {// 1 is the appreoved id
 			com.setCommentText(" ****Error****\r\n" + " *****System Generated*****\r\n "

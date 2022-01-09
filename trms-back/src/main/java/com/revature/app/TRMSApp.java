@@ -46,6 +46,14 @@ with Selenium using your Cucumber feature files.
 
 				});                  
 			});
+			path("/approve/{id}", () -> {// /approve/{id}
+				get(ReviewsController::ApproveRequest);
+			});
+				path("/reject/{id}", () -> {//?
+					get(ReviewsController::RejectRequest);
+
+				                  
+			});
 			path("/requests", () -> {
 				post(RequestsController::submitReimbursementRequest);
 

@@ -11,8 +11,18 @@
         </nav>
         
         <main>
+            <div>
+                <label for="view">Enter Req ID to </label>
+                <input type="text"placeholder="req id" id="input">
+                <button id="accbutton">Accept</button>
+                <label for="view">or </label>
+                <button id="rejbutton">Reject</button>
+     </div>
+
             <h3>TRMS</h3>
+            
            <h2 class="viewH"> All of Your Requests</h2>
+
             <table id="allRequests" >
                 <tr>
                     <th>Req. Id</th>
@@ -27,7 +37,7 @@
                     <th>Event Type</th>
                     <th>Status</th>
                     <th>Submitted At</th>
-                    <th> Approve/Reject</th>
+                    <!-- <th> Approve/Reject</th> -->
                 </tr>
             </table>
              <script src="./js/setup.js"></script>

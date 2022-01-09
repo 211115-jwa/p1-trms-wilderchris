@@ -109,9 +109,9 @@ function showRequests(requests) {
                 rowForRequests.appendChild(column);
             }else{
                
-                column = document.createElement('td');
-                 column.innerHTML=`<button id="view${employees.empId}">View</button>`;
-             rowForRequests.appendChild(column1);
+            //     column = document.createElement('td');
+            //      column.innerHTML=`<button id="view${employees.empId}">View</button>`;
+            //  rowForRequests.appendChild(column1);
              }
              
         }
@@ -119,5 +119,40 @@ function showRequests(requests) {
         requestsTable.appendChild(rowForRequests);
          
     }
-  
+    document.getElementById(`accbutton`).onclick = acceptRequests;
+    document.getElementById(`rejbutton`).onclick = rejectRequests;
+}
+async function acceptRequests(){
+
+    let userInput = document.getElementById('input').value;
+    
+    let response = await fetch(reqAppUrl + 'approve/' + userInput);
+
+
+    if (response.status === 200){// || response == '') {
+        alert('Approved Request: ' + userInput);
+
+    }else if(response == ''){
+        alert('response is empty');// fix later
+    
+    }else{
+    alert('404 Not Found: no Request by ID exists');
+    }
+}
+
+async function rejectRequests(){
+    let userInput = document.getElementById('input').value;
+    
+    let response = await fetch(reqAppUrl + 'reject/' + userInput);
+
+    
+    if (response.status === 200){// || response == '') {
+        alert('Rejected Request: '+ userInput);
+        
+    }else if(response == ''){
+        alert('response is empty');// fix later
+    
+    }else{
+    alert('404 Not Found: no Request by ID exists');
+    }
 }

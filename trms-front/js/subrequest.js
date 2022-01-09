@@ -62,7 +62,9 @@ async function submitRequest() {
         body: JSON.stringify(request),
         });
         if (response.status === 201) {
-        alert("Request has been sent");
+            cost = loggedInPerson.funds - cost;
+        alert("Request has been sent\r\n Pending Request is approved the \r\n balance of $"
+        + cost + " will be left from your account\r\n  for the rest of the year.");
         }
         else
             alert("Something went wrong");
