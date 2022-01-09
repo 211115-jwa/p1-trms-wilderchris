@@ -28,10 +28,10 @@ async function submitRequest() {
     let desc = document.getElementById("descBox").value;//
     let cost = document.getElementById("cost").value;//
     
-    console.log(etime);
-    console.log(st);
-    console.log(gf);
-    console.log(edate);
+    // console.log(etime);
+    // console.log(st);
+    // console.log(gf);
+    // console.log(edate);
     let request = {
         "requestor": loggedInPerson,
         "eventDate": edate,
@@ -62,7 +62,7 @@ async function submitRequest() {
         body: JSON.stringify(request),
         });
         if (response.status === 201) {
-            cost = loggedInPerson.funds - cost;
+            cost = loggedInPerson.funds - costCalc(cost);
         alert("Request has been sent\r\n Pending Request is approved the \r\n balance of $"
         + cost + " will be left from your account\r\n  for the rest of the year.");
         }
@@ -70,4 +70,20 @@ async function submitRequest() {
             alert("Something went wrong");
     }    
 }
+ function costCalc(c){
+if (etp == 1 ){
+    c = c * .80;
+}else if (etp == 2){
+    c = c * .6;
+}else if (etp == 3){
+    c = c * .75;
+}else if (etp == 4){
+    c = c * 1;
+}else if (etp == 5){
+    c = c * .9;
+}else 
+    c = c * .3;
 
+
+return c;
+ }
