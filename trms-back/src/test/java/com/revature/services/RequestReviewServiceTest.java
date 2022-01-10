@@ -21,6 +21,7 @@ import com.revature.beans.Comment;
 import com.revature.beans.Department;
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.Status;
 import com.revature.data.CommentDAO;
 import com.revature.data.DepartmentDAO;
 import com.revature.data.EmployeeDAO;
@@ -63,7 +64,8 @@ public class RequestReviewServiceTest {
 	private static Set<Reimbursement> mockReqs;
 	private static Set<Employee> mockEmps;
 	private static Set<Comment> mockComs;
-
+	private static Set<Status> mockStat;
+	
 	@BeforeAll
 	public static void mockSetup() {
 		mockReqs = new HashSet<>();
@@ -80,7 +82,7 @@ public class RequestReviewServiceTest {
 			rem.getStatus().setStatusId(i);
 			mockReqs.add(rem);
 		}
-		
+
 		for (int i = 1; i < 30; i++) {
 			Comment c = new Comment();
 			c.setCommentId(i);
@@ -123,7 +125,7 @@ public class RequestReviewServiceTest {
 	public void testgetPendingReimbursements() {
 		List<Employee> emp = new ArrayList<>(mockEmps);
 		
-		when(remDAO.getByRequestor(emp.get(0))).thenReturn(mockReqs);
+		//when(remDAO.getByStatus(emp.get(1))).thenReturn(mockReqs);
 		Set<Reimbursement> riem = rrServ.getPendingReimbursements(emp.get(1));
 		
 		assertTrue(!riem.isEmpty());
@@ -138,15 +140,6 @@ public class RequestReviewServiceTest {
 		
 	}
 	
-	@Test
-	public void testRejectRequestwithComment() {
-		//List<Reimbursement> rems = new ArrayList<>(mockReqs);
-		List<Comment> coms = new ArrayList<>(mockComs);
-		
-		when(comDAO.create(coms.get(0))).thenReturn(null);
-		
-		assertEquals(1,comDAO.getAll());
-	}
-	
+
 
 }
