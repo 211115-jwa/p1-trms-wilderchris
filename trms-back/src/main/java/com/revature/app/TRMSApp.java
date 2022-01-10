@@ -33,7 +33,7 @@ public class TRMSApp {
 				String token = ctx.header("Token");
 				if (token == null)
 					ctx.status(HttpCode.UNAUTHORIZED);
-					ctx.result("  and this");
+					
 			}
 		
 		});

@@ -44,6 +44,12 @@ public static WebDriver driver;
 	@Given("the user is on the Home page and login")
 	public void the_user_is_on_the_home_page() {
 		driver.get("file:/C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/index.html");
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(5))
+				.pollingEvery(Duration.ofMillis(50));
+		
+		
+		wait.until(ExpectedConditions.numberOfElementsToBeLessThan(By.id("login"), 2));
 		WebElement loginLink = driver.findElement(By.id("login"));
 		loginLink.click();
 	}
@@ -56,6 +62,10 @@ public static WebDriver driver;
 	@When("the user enters {string} and {string} to log in")
 	public void the_user_enters_and_to_log_in(String username, String password) {
 		
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(5))
+				.pollingEvery(Duration.ofMillis(50));
+		wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.id("username"), 0));
 		
 		WebElement userIn = driver.findElement(By.id("username"));
 		WebElement passIn = driver.findElement(By.id("password"));
@@ -70,7 +80,7 @@ public static WebDriver driver;
 	
 
 	@Then("the navbar contains {string}")
-	public void the_navbar_contains(String firstname) {
+	public void the_navbar_contains(String username) {
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(5))
 				.pollingEvery(Duration.ofMillis(50));
@@ -78,7 +88,7 @@ public static WebDriver driver;
 		
 		WebElement navLink = driver.findElement(By.id("manageUser"));
 		
-		assertTrue( navLink.getText().contains(firstname));
+		assertTrue( navLink.getText().contains(username));
 		
 		driver.findElement(By.id("logout")).click();
  
@@ -101,7 +111,7 @@ public static WebDriver driver;
 	}
 	@AfterAll
 	public static void closeDriver() {
-		driver.switchTo().alert().accept();
+		//driver.switchTo().alert().accept();
 		driver.close();
 		driver.quit();
 	}

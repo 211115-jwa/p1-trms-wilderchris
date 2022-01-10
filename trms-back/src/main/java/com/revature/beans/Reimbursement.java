@@ -52,7 +52,7 @@ public class Reimbursement {
 
 	public LocalDate getEventDate() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate ld = LocalDate.parse(eventDate,formatter);
+        LocalDate ld = LocalDate.parse(this.eventDate,formatter);
 		return ld;
 	}
 
@@ -62,7 +62,7 @@ public class Reimbursement {
 
 	public LocalTime getEventTime() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime lt = LocalTime.parse(eventTime,formatter);
+        LocalTime lt = LocalTime.parse(this.eventTime,formatter);
 		return lt;
 	}
 
