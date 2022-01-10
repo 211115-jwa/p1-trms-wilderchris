@@ -1,4 +1,5 @@
 
+//checkLogin();
 
 document.getElementById(`submitbutton`).onclick = submitRequest;
 

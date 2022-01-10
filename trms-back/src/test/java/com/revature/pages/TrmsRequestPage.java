@@ -19,7 +19,8 @@ private WebDriver driver;
 	@FindBy(id="dataInput")
 	private WebElement empInput;
 	@FindBy(id="reqbutton")
-	private WebElement reqBtn;
+	public WebElement reqBtn;
+	
 	
 	public TrmsRequestPage(WebDriver driver) {
 		this.driver = driver;
@@ -44,11 +45,14 @@ private WebDriver driver;
 		return errorMsg.getText();
 	}
 
-	public void submitRequestorId(int empId) {
+	public void enterRequestorId(int empId) {
 		String empid = String.valueOf(empId);
 		empInput.sendKeys(empid);
+		
+		
+	}
+	public void pressSubmit() {
 		reqBtn.click();
 	}
-	
 	
 }
