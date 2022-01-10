@@ -11,13 +11,7 @@ import com.revature.controllers.ReviewsController;
 
 public class TRMSApp {
 
-	/*
-	Use BDD with Cucumber to plan the expected
-	 * behavior of features, then implement each feature using Agile methodology.
-	 * Test each feature that you've added with Selenium using your Cucumber feature
-	 * files.
-	 * 
-	 */
+	
 
 	public static void main(String[] args) {
 		Javalin app = Javalin.create(config -> {
