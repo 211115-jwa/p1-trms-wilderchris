@@ -4,17 +4,14 @@ Feature: login as user
     Given the user is on the Home page and login
     When the user enters "<username>" and "<password>" to log in
     And the user clicks the login button
-    Then the navbar contains "<firstname>"
+    Then the navbar contains "<username>"
 
     Examples: 
       | username | password |
       | mad1     | pass     |
       | homer    | pass     |
 
-    Examples: 
-      | firstname |
-      | Madelon   |
-      | Homer     |
+    
 
   Scenario Outline: logging in with incorrect passwords
     Given the user is on the home page and login

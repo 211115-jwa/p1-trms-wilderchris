@@ -41,7 +41,7 @@ function setupNav() {
         <span><a href="manage.html">  &#x1F5F8 Check Pending Requests</a></span> 
         <span><a href="view.html"> &#x1F441 View your Requests</a></span>
         <span id="navRight"><span>&#x1F916</span> 
-        <a >${loggedInPerson.firstName + " " + loggedInPerson.lastName } &nbsp </a>
+        <a >${loggedInPerson.username} &nbsp </a>
         <button align="right"  id="logout">Log Out</button>
         </span>`;
 
@@ -54,7 +54,7 @@ function setupNav() {
         <span><a href="view.html"> &#x1F441 View your Requests</a></span> 
         </span>
         <span id="navRight">
-        <a >${loggedInPerson.firstName + loggedInPerson.lastName + "  "}   </a>
+        <a >${loggedInPerson.username}   </a>
         <button id="logout">Log Out</button>
         </span>`;
 
