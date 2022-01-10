@@ -1,5 +1,5 @@
 
-checkLogin();
+//checkLogin();
 
 setTimeout(getRequests,3000);
 async function getRequests() {

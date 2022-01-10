@@ -7,6 +7,7 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -54,7 +55,7 @@ public class EmployeeDAOTest {
 		mockEmp.setDepartment(dept);
 
 	}
-
+	@Disabled("Not Needed, Tests good")	
 	@Test
 	@Order(1)
 	public void testCreate() {// 1
@@ -86,8 +87,7 @@ public class EmployeeDAOTest {
 		assertNotEquals(null, allEmps);
 
 	}
-
-	@Test
+	@Disabled("Not Needed, Tests good")	@Test
 	@Order(2)
 	public void testUpdate() {// 4
 
@@ -98,7 +98,7 @@ public class EmployeeDAOTest {
 		empDAO.update(mockEmp);
 		assertEquals(unUpdate, empDAO.getByUsername(unUpdate).getUsername());
 	}
-
+	@Disabled("Not Needed, Tests good")	
 	@Test
 	@Order(3)
 	public void testDelete() {// 5

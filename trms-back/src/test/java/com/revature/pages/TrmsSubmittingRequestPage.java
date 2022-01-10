@@ -1,5 +1,6 @@
 package com.revature.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +30,7 @@ private WebDriver driver;
 		driver.get("");
 	}
 
-	public void navigateTosubRequests() {
+	public void navigateToRequests() {
 		driver.get("file:///C:/Users/cwild/Documents/GitHub/ProOne/p1-trms-wilderchris/trms-front/subrequest.html");
 	}
 	
