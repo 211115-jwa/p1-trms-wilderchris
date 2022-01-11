@@ -22,40 +22,41 @@ function setupNav() {
     let nav = document.getElementById('nav');// only button is visible if not logged in
     console.log(loggedInPerson);
     if (!loggedInPerson) {
-        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
+        nav.innerHTML = `<a class="btn btn-primary active" aria-current="page" href="index.html"><b>Home</b align="left"></a><span id="navLeft">
         <a hidden>View Requests by Employee id</a>
         <a hidden>Submit a Request</a>
         </span>
         <span id="navRight">
-        <button id="login">Log In</button>
+        <button class="btn btn-primary" id="login" class="btn btn-primary btn-sm">log In</button>
         </span>`;
 
         document.getElementById('login').addEventListener('click',openLogin);
     } else if (loggedInPerson.role.roleId < 11) {// set for supervisor
-        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft"> 
-        <span></span>
-        <a href="requests.html">&#x1F465 View Requests by id</a> 
-        <div>
-        <a href="subrequest.html">&#x2709 Submit a Request</a></span>
-        </div>
-        <span><a href="manage.html">  &#x1F5F8 Check Pending Requests</a></span> 
-        <span><a href="view.html"> &#x1F441 View your Requests</a></span>
-        <span id="navRight"><span>&#x1F916</span> 
-        <a >${loggedInPerson.username} &nbsp </a>
-        <button align="right"  id="logout">Log Out</button>
+        nav.innerHTML = `<span><a class="btn btn-primary active" aria-current="page" href="index.html"><b>Home</b ></a><span id="navLeft"> </span>
+        <span>
+        <a  class="btn btn-primary" href="requests.html">&#x1F465 View Requests by id</a> </span> 
+        <span>
+        <a class="btn btn-primary" href="subrequest.html">&#x2709 Submit a Request</a></span> 
+        <span>
+       <a class="btn btn-primary" href="manage.html">  &#x1F5F8 Check Pending Requests</a></span> 
+        <span><a class="btn btn-primary" href="view.html"> &#x1F441 View your Requests</a></span>
+        <span id="navRight">
+        
+        <button class="btn btn-primary" align="right"  id="logout">Log Out</button>
+       <label for="user" >UserName: <a name="user" >${loggedInPerson.username} &nbsp </a>
         </span>`;
 
         document.getElementById('logout').addEventListener('click',logOut);
     } else {// default
-        nav.innerHTML = `<a href="index.html"><b>Home</b align="left"></a><span id="navLeft">
+        nav.innerHTML = `<a class="btn btn-primary active" aria-current="page" href="index.html"><b>Home</b align="left"></a><span id="navLeft">
         <a hidden>View Requests by Id</a>
-        <a href="subrequest.html"> &#x2709 Submit a Request</a>
+        <a class="btn btn-primary" href="subrequest.html"> &#x2709 Submit a Request</a>
 
-        <span><a href="view.html"> &#x1F441 View your Requests</a></span> 
+        <span><a class="btn btn-primary" href="view.html"> &#x1F441 View your Requests</a></span> 
         </span>
         <span id="navRight">
-        <a >${loggedInPerson.username}   </a>
-        <button id="logout">Log Out</button>
+        <a class="btn btn-primary" class="nav-link active" aria-current="page" >${loggedInPerson.username}   </a>
+        <button class="btn btn-primary" id="logout">Log Out</button>
         </span>`;
 
         document.getElementById('logout').addEventListener('click',logOut);
@@ -75,7 +76,7 @@ function openLogin() {
             &nbsp;&nbsp;&nbsp;
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
-            <button id="loginBtn" type="button">Submit</button>
+            <button class="btn btn-primary" id="loginBtn" type="button">Submit</button>
         </form>`;
     document.getElementsByTagName('main')[0].insertAdjacentElement("beforebegin",loginPane);
 

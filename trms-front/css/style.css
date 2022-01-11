@@ -1,17 +1,22 @@
 body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #c5dae4;
-   
+    font-family: "Gill Sans", sans-serif;   
 }
+ul {
+    list-style: none;
+   }
+
 #welcome {
  background-repeat: no-repeat;
   background-position: center;
   
 }
 
-nav a {
-    color:#2e3c8d;
-}
+#info {
+    resize: both;
+    overflow: auto;
+    margin: auto;
+  width: 50%;
+  }
 
 nav {
     display:flex;
@@ -19,22 +24,11 @@ nav {
     font-size:14pt;
 }
 
-#navLeft {
-    display: flex;
-    justify-content: space-around;
-    width:67%;
-}
-
-#navRight {
-    display: flex;
-    justify-content: right;
-    width:33%;
-}
 
 nav, main {
     margin:.5em;
     padding: 1em;
-    background-color:#9093a1;
+  ;
 }
 
 main {
@@ -82,13 +76,13 @@ tr:nth-child(even) {
 
 .navbar {
     overflow: hidden;
-    background-color: #333;
+ 
   }
   
   .navbar a {
     float: left;
     font-size: 16px;
-    color: white;
+ 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
