@@ -1,6 +1,6 @@
 
 
-//checkLogin();
+checkLogin().then(getRequests);
 
 document.getElementById(`reqbutton`).onclick = getRequests;
 

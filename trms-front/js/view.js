@@ -1,10 +1,9 @@
 
-//checkLogin();
+checkLogin().then(getRequests);
 
-setTimeout(getRequests,3000);
+
 async function getRequests() {
-    //checkLogin().then(setupNav);
-
+  
    let eid = loggedInPerson.empId;
    console.log(loggedInPerson);
     
