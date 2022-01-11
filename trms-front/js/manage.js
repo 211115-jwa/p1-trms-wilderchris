@@ -1,7 +1,7 @@
 
-checkLogin();
+checkLogin().then(getRequests);
 
-setTimeout(getRequests,3000);
+
 
 async function getRequests() {
     

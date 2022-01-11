@@ -1,7 +1,6 @@
 
-//checkLogin();
+checkLogin().then(getWelcome);
 
-setTimeout(getWelcome,1000);
 
 let mainDiv = document.getElementById('info');
 
